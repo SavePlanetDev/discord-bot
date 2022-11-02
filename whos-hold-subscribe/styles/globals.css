@@ -1,0 +1,261 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+    
+  }
+}
+
+
+html {
+          box-sizing: border-box;
+          font-family: 'Open Sans', sans-serif;
+        }
+        
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        
+        .background {
+          padding: 0 25px 25px;
+          position: relative;
+          width: 100%;
+        }
+        
+        .background::after {
+          content: '';
+          background: #000000;
+          background: -moz-linear-gradient(top, #000000 0%, #000000 100%);
+          background: -webkit-linear-gradient(top, #000000 0%,#000000 100%);
+          background: linear-gradient(to bottom, #000000 0%,#000000 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
+          height: 350px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: 1;
+        }
+        
+        @media (min-width: 900px) {
+          .background {
+            padding: 0 0 25px;
+          }
+        }
+        
+        .container {
+          margin: 0 auto;
+          padding: 50px 0 0;
+          max-width: 260px;
+          width: 100%;
+        }
+        .containerregister {
+          margin: 0 auto;
+          padding: 50px 0 0;
+          max-width: 560px;
+          width: 100%;
+        }
+        .inputtext{
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        .panel {
+          background-color: rgb(47, 45, 45);
+          border-radius: 10px;
+          padding: 15px 25px;
+          position: relative;
+          width: 100%;
+          z-index: 10;
+        }
+        .panel2 {
+          background-color: rgb(47, 45, 45);
+          border-radius: 10px;
+          padding: 15px 15px;
+          position: relative;
+          z-index: 10;
+        }
+        
+        .pricing-table {
+          box-shadow: 0px 10px 13px -6px rgba(233, 233, 233, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+          display: flex;
+          flex-direction: column;
+          
+        }
+        
+        @media (min-width: 900px) {
+          .pricing-table {
+            flex-direction: row;
+          }
+        }
+        
+        .pricing-table * {
+          text-align: center;
+          text-transform: uppercase;
+        }
+        
+        .pricing-plan {
+          border-bottom: 1px solid #e1f1ff;
+          padding: 25px;
+          
+        }
+        
+        .pricing-plan:last-child {
+          border-bottom: none;
+        }
+        
+        @media (min-width: 900px) {
+          .pricing-plan {
+            border-bottom: none;
+            border-right: 1px solid #e1f1ff;
+            flex-basis: 100%;
+            padding: 25px 0px;
+            
+          }
+        
+          .pricing-plan:last-child {
+            border-right: none;
+          }
+        }
+        
+        .pricing-img {
+          margin-bottom: 25px;
+          max-width: 80%;
+        }
+        
+        .pricing-header {
+          color: rgb(255, 255, 255);
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+        
+        .pricing-features {
+          color: #ffffff;
+          font-weight: 600;
+          letter-spacing: 1px;
+          margin: 50px 5px 25px -34px;
+        }
+        
+        .pricing-features-item {
+          border-top: 1px solid #e1f1ff;
+          font-size: 12px;
+          line-height: 1.5;
+          padding: 15px 0;
+        }
+        
+        .pricing-features-item:last-child {
+          border-bottom: 1px solid #e1f1ff;
+        }
+        
+        .pricing-price {
+          color:  #48aaff;
+          display: block;
+          font-size: 32px;
+          font-weight: 700;
+        }
+        
+        .pricing-button {
+          border: 1px solid #1862a3;
+          border-radius: 10px;
+          color: #ffffff;
+          display: inline-block;
+          margin: 25px 0;
+          padding: 15px 35px;
+          text-decoration: none;
+          transition: all 150ms ease-in-out;
+        }
+        .submit-button {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .submit-button:hover {
+          background-color: #45a049;
+        }
+        .botumnposition {
+          left: 40px;
+        }
+        .verify-button {
+          position: relative;
+          top: 10px;
+          font-size: 10px;
+          left: -10px;
+          color: rgba(83, 111, 252, 0.907);
+          backface-visibility: hidden;
+      
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .4px;
+      
+          border: 2px solid rgba(15, 33, 237, 0.907);
+          padding: 8px 15px;
+          border-radius: 30px;
+      
+          background: rgba(40, 74, 248, 0.907);
+          color: white;
+        }
+        .back-button {
+          position: relative;
+          top: 10px;
+          left: 10px;
+          font-size: 10px;
+          color: rgba(252, 83, 83, 0.907);
+          backface-visibility: hidden;
+      
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .4px;
+      
+          border: 2px solid rgba(245, 12, 12, 0.907);
+          padding: 8px 15px;
+          border-radius: 30px;
+      
+          background: rgba(244, 54, 54, 0.907);
+          color: white;
+        }
+        
+        .pricing-button:hover,
+        .pricing-button:focus {
+          background-color: #48aaff;
+        }
+        
+        .pricing-button.is-featured {
+          background-color: #48aaff;
+          color: #fff;
+        }
+        
+        .pricing-button.is-featured:hover,
+        .pricing-button.is-featured:active {
+          background-color: #0d3455;
+        }
+        
