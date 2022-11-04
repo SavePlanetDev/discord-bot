@@ -6,7 +6,7 @@ const config = require("../../constants/discord.config");
 async function onVerify(interaction) {
   if (!interaction.isChatInputCommand()) return;
   if (!interaction.deferred) {
-    await interaction.deferReply();
+    await interaction.deferReply({ ephemeral: true });
   }
 
   const row = new ActionRowBuilder().addComponents(

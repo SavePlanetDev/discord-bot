@@ -1,12 +1,12 @@
 const catchAsync = require("../../utils/catchAcsync");
-const { getPlanById } = require("../../services/plan.services");
-const { createNewProject } = require("../../services/project.service");
-const { createRole } = require("../../services/role.service");
+const { getPlanById } = require("../../services/remotes-db/plan.services");
+const {
+  createNewProject,
+} = require("../../services/remotes-db/project.service");
+const { createRole } = require("../../services/remotes-db/role.service");
 const {
   createNewSubscription,
-} = require("../../services/subscription.service");
-
-const { parseDataObject } = require("../../utils/parseSqliteObject");
+} = require("../../services/remotes-db/subscription.service");
 
 const createSubscription = catchAsync(async ({ params, body }, res) => {
   const {
@@ -25,6 +25,7 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     planId,
     roleName,
   } = body;
+
   //get plan data
   const plan = await getPlanById(planId);
   //create proejct
@@ -54,14 +55,14 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     new Date().getTime()
   );
   //add role
-  const subResult = parseDataObject(subscription);
-  const projResult = parseDataObject(project);
-  const planResult = parseDataObject(plan);
+  // const subResult = parseDataObject(subscription);
+  // const projResult = parseDataObject(project);
+  // const planResult = parseDataObject(plan);
 
   const logs = {
-    ...projResult,
-    ...subResult,
-    ...planResult,
+    ...subscription,
+    ...project,
+    ...plan,
   };
 
   console.log("subscribe logs", logs);

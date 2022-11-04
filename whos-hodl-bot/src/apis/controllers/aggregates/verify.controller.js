@@ -1,11 +1,12 @@
 const catchAsync = require("../../utils/catchAcsync");
 const client = require("../../../discord/discord.client");
-const { createNewHolder } = require("../../services/holder.service");
-const { getRolesByGuildId } = require("../../services/role.service");
-const { getProjectByGuild } = require("../../services/project.service");
+const { createNewHolder } = require("../../services/remotes-db/holder.service");
+const { getRolesByGuildId } = require("../../services/remotes-db/role.service");
+const {
+  getProjectByGuild,
+} = require("../../services/remotes-db/project.service");
 const { setRole } = require("../../../discord/handlers/role.handler");
 const { getContract } = require("../../../blockchain");
-const { parseDataObject } = require("../../utils/parseSqliteObject");
 
 const verifyHolder = catchAsync(async ({ body }, res) => {
   const { walletAddress, discordId, discordGuildId } = body;
@@ -29,16 +30,15 @@ const verifyHolder = catchAsync(async ({ body }, res) => {
       true
     );
 
-    const roleData = parseDataObject(role);
-    console.log("role data", roleData[0].role);
-    await setRole(client, discordGuildId, discordId, roleData[0].role);
+    console.log("role data", role[0]);
+    await setRole(client, discordGuildId, discordId, role[0].role);
 
     const logs = {
       nftAddress,
       discordGuildId,
       discordId,
       balance,
-      role: roleData.role,
+      role: role[0].role,
     };
 
     //response

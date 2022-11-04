@@ -5,9 +5,12 @@ const {
   setRole,
   removeRole,
 } = require("../discord/handlers/role.handler");
-const { getAllProjects } = require("../apis/services/project.service");
-const { getHolderByWallet } = require("../apis/services/holder.service");
-const { parseDataObject } = require("../apis/utils/parseSqliteObject");
+const {
+  getAllProjects,
+} = require("../apis/services/remotes-db/project.service");
+const {
+  getHolderByWallet,
+} = require("../apis/services/remotes-db/holder.service");
 
 const provider = new ethers.providers.JsonRpcProvider(
   "https://rpc.bitkubchain.io"
@@ -32,6 +35,7 @@ const onTransferEvent = async () => {
     "0x9E718B5D46D100E021537E59130Bed9991D78eC0",
     "0x9f5eF88624bfEdAB84AcD900Be92D2f94acA23Af",
     "0xfF2f5342FF8fFfA17a04aA5CbC162001A25B71a7",
+    "0x7C80f994C724b0C8F834F4303C4f142004798219",
   ];
   projects.forEach((project) => {
     const contract = getContract(project);
@@ -51,7 +55,7 @@ const onTransferEvent = async () => {
   });
 };
 
-// onTransferEvent();
+onTransferEvent();
 
 //tracking transfer event for give discord user a role and nickname
 // punkkub.on("Transfer", async (from, to, tokenId) => {

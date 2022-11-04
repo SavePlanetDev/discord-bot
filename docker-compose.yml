@@ -1,23 +1,29 @@
-version: '3'
+version: "3"
 services:
   bot:
     # will build ./docker/web/Dockerfile
     build: ./whos-hodl-bot
     ports:
-     - "3000:3000"
+      - "3000:3000"
     volumes:
-     - .:/code
+      - .:/code
   subsubcriber:
     # will build ./docker/web/Dockerfile
     build: ./whos-hold-subscribe
     ports:
-     - "3001:3000"
+      - "3001:3000"
     volumes:
-     - .:/code
+      - .:/code
   verify:
     # will build ./docker/web/Dockerfile
     build: ./whos-hodl-verify2
     ports:
-     - "3002:3000"
+      - "3002:3000"
     volumes:
-     - .:/code
+      - .:/code
+  database:
+    build: "./whos-hodl-database"
+    ports:
+      - "3003:3000"
+    volumes:
+      - .:code
