@@ -1,15 +1,11 @@
 require("dotenv").config();
-// const basePath = process.cwd();
 const { Sequelize } = require("sequelize");
-// const sequelize = new Sequelize({
-//   dialect: "sqlite",
-//   storage: `${basePath}/src/database/db-files/db.sqlite`,
-// });
+const { production } = process.env;
 
 const sequelize = new Sequelize("whoshodl", "non", "apolloteam", {
-  host: "host.docker.internal",
+  host: production === "PROD" ? "host.docker.internal" : "157.245.152.83",
   port: 5432,
-  dialect: "postgres"
+  dialect: "postgres",
 });
 
 module.exports = sequelize;

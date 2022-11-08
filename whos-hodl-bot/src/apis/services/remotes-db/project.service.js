@@ -59,9 +59,9 @@ const getAllProjects = async () => {
 };
 
 const getProjectByGuild = async (discordGuildId) => {
-  const response = await axios.get(
-    `${remote_database}/${baseRoute}/guild/${discordGuildId}`
-  );
+  const response = await axios
+    .get(`${remote_database}/${baseRoute}/guild/${discordGuildId}`)
+    .catch((e) => console.log("ERROR!", e.message));
 
   return response.data.data;
 };

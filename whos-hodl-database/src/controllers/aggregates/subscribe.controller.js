@@ -1,14 +1,15 @@
 const catchAsync = require("../../utils/catchAcsync");
 const { getPlanById } = require("../../services/plan.services");
 const { createNewProject } = require("../../services/project.service");
-const { createRole } = require("../../services/role.service");
 const {
   createNewSubscription,
 } = require("../../services/subscription.service");
 
 const { parseDataObject } = require("../../utils/parseSqliteObject");
+const AppError = require("../../utils/AppError");
+const { responseData } = require("../../utils/response");
 
-const createSubscription = catchAsync(async ({ params, body }, res) => {
+const createSubscription = catchAsync(async ({ params, body }, res, next) => {
   const {
     nftAddress,
     ownerDiscordId,
@@ -23,10 +24,18 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     discordInviteLink,
     etherscan,
     planId,
-    roleName,
+    roles,
+    messages = [],
   } = body;
   //get plan data
-  const plan = await getPlanById(planId);
+  const plan = await getPlanById(planId).catch((e) =>
+    next(new AppError(`get plan of ${plan} failed.`, 500, "createSubscription"))
+  );
+
+  console.log(body);
+
+  const planResult = parseDataObject(plan);
+
   //create proejct
   const project = await createNewProject(
     nftAddress,
@@ -41,7 +50,17 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     twitter,
     discordInviteLink,
     etherscan,
-    plan.planId
+    planResult.planId,
+    JSON.parse(roles),
+    messages
+  ).catch((e) =>
+    next(
+      new AppError(
+        `create project for subscription failed`,
+        500,
+        "createNewSubscription"
+      )
+    )
   );
 
   //create subscription
@@ -49,14 +68,21 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     discordGuildId,
     ownerDiscordId,
     ownerWalletAddress,
-    plan.planId,
-    plan.period,
+    planResult.planId,
+    planResult.period,
     new Date().getTime()
+  ).catch((e) =>
+    next(
+      new AppError(
+        `create new subscription failed`,
+        500,
+        "createNewSubscription"
+      )
+    )
   );
   //add role
   const subResult = parseDataObject(subscription);
   const projResult = parseDataObject(project);
-  const planResult = parseDataObject(plan);
 
   const logs = {
     ...projResult,
@@ -64,13 +90,11 @@ const createSubscription = catchAsync(async ({ params, body }, res) => {
     ...planResult,
   };
 
-  console.log("subscribe logs", logs);
-
-  await createRole(discordGuildId, roleName, 1);
-  res.status(200).json({
-    result: "OK",
-    data: logs,
-  });
+  return !subscription
+    ? next(
+        new AppError("create subscription failed", 500, "createNewSubscription")
+      )
+    : responseData(res, logs, 201, "createNewSubscription");
 });
 
 module.exports = {

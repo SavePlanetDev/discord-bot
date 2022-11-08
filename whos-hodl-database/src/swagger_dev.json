@@ -237,7 +237,7 @@
         }
       }
     },
-    "/project/owner/{ownerDisocrdId}": {
+    "/project/owner/{ownerDiscordId}": {
       "parameters": [
         {
           "name": "ownerDiscordId",
@@ -253,7 +253,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Projects"
+              "$ref": "#/definitions/Project"
             }
           }
         }
@@ -372,9 +372,9 @@
       "parameters": [
         {
           "name": "nftAddress",
+          "type": "string",
           "in": "path",
-          "required": true,
-          "type": "string"
+          "required": true
         }
       ],
       "get": {
@@ -395,14 +395,14 @@
         {
           "name": "nftAddress",
           "in": "path",
-          "required": true,
-          "description": "nft smart contract address"
+          "type": "string",
+          "required": true
         },
         {
           "name": "discordId",
           "in": "path",
-          "required": true,
-          "description": "nft holder discord Id"
+          "type": "string",
+          "required": true
         }
       ],
       "get": {
@@ -781,12 +781,20 @@
         "planId": {
           "type": "integer",
           "definition": "plan id that this project is using"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
-    },
-    "Projects": {
-      "type": "array",
-      "$ref": "#/definitions/Project"
     },
     "Holder": {
       "required": [],
@@ -857,7 +865,7 @@
       }
     }
   },
-  "host": "localhost:3001",
+  "host": "localhost:3003",
   "basePath": "/v1",
   "tags": [
     {

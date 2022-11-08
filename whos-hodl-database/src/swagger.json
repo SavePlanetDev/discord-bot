@@ -218,8 +218,9 @@
     "/project/nft/{nftAddress}": {
       "parameters": [
         {
-          "name": "nft smart contract address",
+          "name": "nftAddress",
           "type": "string",
+          "in": "path",
           "required": true
         }
       ],
@@ -236,11 +237,12 @@
         }
       }
     },
-    "/project/owner/{ownerDisocrdId}": {
+    "/project/owner/{ownerDiscordId}": {
       "parameters": [
         {
-          "name": "project owner discord Id",
+          "name": "ownerDiscordId",
           "type": "string",
+          "in": "path",
           "required": true
         }
       ],
@@ -251,7 +253,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Projects"
+              "$ref": "#/definitions/Project"
             }
           }
         }
@@ -260,8 +262,9 @@
     "/project/guild/{discordGuildId}": {
       "parameters": [
         {
-          "name": "guild discord id",
+          "name": "discordGuildId",
           "type": "string",
+          "in": "path",
           "required": true
         }
       ],
@@ -281,8 +284,9 @@
     "/project/plan/{planId}": {
       "parameters": [
         {
-          "name": "plan id",
+          "name": "planId",
           "type": "string",
+          "in": "path",
           "required": true
         }
       ],
@@ -365,6 +369,14 @@
       }
     },
     "/holder/{nftAddress}": {
+      "parameters": [
+        {
+          "name": "nftAddress",
+          "type": "string",
+          "in": "path",
+          "required": true
+        }
+      ],
       "get": {
         "tags": ["Holders"],
         "summary": "list all holders of {nftAddress}",
@@ -379,6 +391,20 @@
       }
     },
     "/holder/{nftAddress}/{discordId}": {
+      "parameters": [
+        {
+          "name": "nftAddress",
+          "in": "path",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "discordId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
       "get": {
         "tags": ["Holders"],
         "summary": "get holder of specific nft",
@@ -755,6 +781,18 @@
         "planId": {
           "type": "integer",
           "definition": "plan id that this project is using"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -828,6 +866,7 @@
     }
   },
   "host": "157.245.152.83:3003",
+  "_host": "localhost:3000",
   "basePath": "/v1",
   "tags": [
     {

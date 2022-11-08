@@ -34,54 +34,50 @@ const createNewSubscription = async (
       //@NON: started with expired false
       expired: false,
     },
-  });
+  }).catch((e) => console.log("ERROR !!", e.message));
   if (created) {
     return result;
   } else {
-    throw new Error(`GuildId: ${discordGuildId} is already existed.`);
+    return null;
   }
 };
 
 const getAllSubscription = async () => {
   const results = await Subscription.findAll();
-  return results;
+  return results.length <= 0 ? [] : results;
 };
 
 const getExpiredSubscriptions = async () => {
   const result = await Subscription.findAll({ where: { expired: true } });
-  return result;
+  return result.length <= 0 ? [] : result;
 };
 const getUnexpiredSubscriptions = async () => {
   const result = await Subscription.findAll({ where: { expired: false } });
-  return result;
+  return result.length <= 0 ? [] : result;
 };
 
-/**
- *
- * @param {string} discordGuildId
- */
 const getSubscriptionByGuildId = async (discordGuildId) => {
   const result = await Subscription.findOne({ where: { discordGuildId } });
-  return result;
+  return result == undefined ? null : result;
 };
-/**
- *
- * @param {string} ownerDiscordId
- */
+
 const getSubscriptionsByDiscordId = async (ownerDiscordId) => {
   const results = await Subscription.findAll({ where: { ownerDiscordId } });
-  return results;
+  return results.length <= 0 ? [] : results;
 };
 
 const updateSubscription = async (discordGuildId, data) => {
-  await Subscription.update(data, { where: { discordGuildId } });
+  const result = await Subscription.update(data, { where: { discordGuildId } });
+  return result <= 0 ? false : true;
 };
 
 const deleteSubscriptionByGuildId = async (discordGuildId) => {
-  await Subscription.delete({ where: discordGuildId });
+  const result = await Subscription.delete({ where: discordGuildId });
+  return result <= 0 ? false : true;
 };
 const deleteSubscriptionsByDiscordId = async (ownerDiscordId) => {
-  await Subscription.delete({ where: ownerDiscordId });
+  const result = await Subscription.delete({ where: ownerDiscordId });
+  return result <= 0 ? false : true;
 };
 
 module.exports = {

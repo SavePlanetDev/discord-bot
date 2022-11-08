@@ -1,13 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-const port = process.env.PORT | 3000;
+const port = process.env.PORT | 3003;
 const cors = require("cors");
 const router = require("./routers/v1");
 const AppError = require("./utils/AppError");
-const GlobalErrorHandler = require("./controllers/error.controller")
+const GlobalErrorHandler = require("./controllers/error.controller");
 
 console.log("Database ENV: ", process.env.production);
-
 
 const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require(`${
@@ -48,7 +47,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/v1", router);
 
-
 //ALL NOT FOUND ROUTES GO HERE
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
@@ -57,8 +55,6 @@ app.all("*", (req, res, next) => {
 //GROBAL ERROR MIDDLEWERE
 app.use(GlobalErrorHandler);
 
-app.listen(port, () =>
-  console.log("DATABASE: conected on port: ", port)
-);
+app.listen(port, () => console.log("DATABASE: conected on port: ", port));
 
 module.exports = app;

@@ -21,7 +21,7 @@ const createNewPlan = async (planName, price, period, description) => {
   if (created) {
     return newPlan;
   } else {
-    throw Error("This plan is already added");
+    return null;
   }
 };
 
@@ -31,7 +31,7 @@ const getAllPlans = async (
   const plans = await Plan.findAll({
     attributes,
   });
-  return plans;
+  return plans.length <= 0 ? [] : plans;
 };
 
 const getPlanById = async (
@@ -39,15 +39,17 @@ const getPlanById = async (
   attributes = ["planId", "planName", "price", "period", "description"]
 ) => {
   const plan = await Plan.findOne({ where: { planId } }, attributes);
-  return plan;
+  return plan === undefined ? null : plan;
 };
 
 const updatePlan = async (planId, data) => {
-  await Plan.update(data, { where: { planId } });
+  const result = await Plan.update(data, { where: { planId } });
+  return result <= 0 ? false : true;
 };
 
 const deletePlan = async (planId) => {
-  await Plan.delete({ where: { planId } });
+  const result = await Plan.delete({ where: { planId } });
+  return result <= 0 ? false : true;
 };
 
 module.exports = {

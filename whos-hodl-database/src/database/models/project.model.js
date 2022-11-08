@@ -59,6 +59,14 @@ Project.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    roles: {
+      type: DataTypes.ARRAY(DataTypes.STRING(255)),
+      allowNull: false,
+    },
+    messages: {
+      type: DataTypes.ARRAY(DataTypes.STRING(255)),
+      allowNull: true,
+    },
   },
   { sequelize }
 );

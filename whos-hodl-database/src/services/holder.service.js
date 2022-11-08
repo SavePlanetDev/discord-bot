@@ -29,7 +29,7 @@ const createNewHolder = async (
       timestamp,
       verified,
     },
-  });
+  }).catch((e) => console.log("Error", e.message));
 
   if (created) {
     return newHolder;
@@ -50,26 +50,34 @@ const getAllHoldersByNft = async (nftAddress) => {
 
 const getHolder = async (discordId, nftAddress) => {
   const result = await Holder.findOne({ where: { discordId, nftAddress } });
-  return result;
+  return result === undefined ? null : result;
 };
 
 const getHolderByWallet = async (wallet, nftAddress) => {
   const result = await Holder.findOne({ where: { discordId, nftAddress } });
-  return result;
+  return result === undefined ? null : result;
 };
 
 const updateHolder = async (discordId, nftAddress, data) => {
-  const updated = await Holder.update(data, { where: { discordId, nftAddress } });
+  const updated = await Holder.update(data, {
+    where: { discordId, nftAddress },
+  });
   return updated <= 0 ? false : true;
 };
 
 const updateVerifyStatus = async (discordId, nftAddress, verified) => {
-  const updated = await Holder.update({ verified }, { where: { discordId, nftAddress } });
+  const updated = await Holder.update(
+    { verified },
+    { where: { discordId, nftAddress } }
+  );
   return updated <= 0 ? false : true;
 };
 
 const updateHolderBalance = async (discordId, nftAddress, balance) => {
-  const updated = await Holder.update({ balance }, { where: { discordId, nftAddress } });
+  const updated = await Holder.update(
+    { balance },
+    { where: { discordId, nftAddress } }
+  );
   return updated <= 0 ? false : true;
 };
 const deleteHolder = async (discordId, nftAddress) => {

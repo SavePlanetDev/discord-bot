@@ -8,5 +8,5 @@ module.exports = {
   verifyUrl:
     process.env.production == "PROD"
       ? "http://157.245.152.83:3002/"
-      : "http://localhost:3000",
+      : "http://localhost:3002",
 };
