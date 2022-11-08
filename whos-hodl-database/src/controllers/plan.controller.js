@@ -6,6 +6,8 @@ const {
   updatePlan,
   deletePlan,
 } = require("../services/plan.services");
+const { responseData } = require("../utils/response");
+const AppError = require("../utils/AppError");
 
 /**
  * create new plan
@@ -17,11 +19,9 @@ const {
  */
 const addNewPlan = catchAsync(async (req, res) => {
   const { planName, price, period, description } = req.body;
-  const newPlan = await createNewPlan(planName, price, period, description);
-  res.status(201).json({
-    result: "OK",
-    data: newPlan,
-  });
+  const newPlan = await createNewPlan(planName, price, period, description).catch(e => next(new AppError(`create new plan error`, 403, "createNewPlan")));
+
+  responseData(res, newPlan, 201, "addNewPlan", "new plan added OK");
 });
 const getPlanList = catchAsync(async (req, res) => {
   const list = await getAllPlans();
@@ -30,6 +30,7 @@ const getPlanList = catchAsync(async (req, res) => {
     count: list.length,
     data: list,
   });
+  
 });
 
 const getPlan = catchAsync(async (req, res) => {

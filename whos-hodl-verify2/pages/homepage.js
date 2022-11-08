@@ -16,7 +16,7 @@ export default function Homepage() {
   const verifyHolder = async (discordId, guildId, address) => {
     try {
       const response = await axios.post(
-        `http://68.183.176.4:3000/v1/holder/verify`,
+        `http://157.245.152.83:3000/v1/holder/verify`,
         {
           walletAddress: address,
           discordId: discordId,

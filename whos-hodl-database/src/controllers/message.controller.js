@@ -5,6 +5,7 @@ const {
   updateMessage,
   deleteMessage,
 } = require("../services/message.service");
+const { responseData } = require("../utils/response");
 
 /**
  *
@@ -18,10 +19,9 @@ const newMessage = catchAsync(async (req, res) => {
   const { discordGuildId, message, level } = req.body;
   createMessage(discordGuildId, message, level)
     .then((result) => {
-      res.staus(201).json({
-        result: "OK",
-        data: result,
-      });
+      res.staus(201).json(
+       responseData(result, 201, "createMessage", `message ${message} created for ${discordGuildId}`) 
+      );
     })
     .catch((e) =>
       res.status(403).json({

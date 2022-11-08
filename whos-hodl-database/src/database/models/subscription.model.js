@@ -6,29 +6,29 @@ class Subscription extends Model {}
 Subscription.init(
   {
     discordGuildId: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       primaryKey: true,
       allowNull: false,
       unique: true,
     },
     ownerDiscordId: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
     ownerWalletAddress: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
     planId: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     start: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     end: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     expired: {

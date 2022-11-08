@@ -3,10 +3,15 @@ const express = require("express");
 const port = process.env.PORT | 3000;
 const cors = require("cors");
 const router = require("./routers/v1");
+const AppError = require("./utils/AppError");
+const GlobalErrorHandler = require("./controllers/error.controller")
+
+console.log("Database ENV: ", process.env.production);
+
 
 const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require(`${
-    process.env.production === "PROD" ? "./swagger.json" : "./swagger_dev.json"
+    process.env.production == "PROD" ? "./swagger.json" : "./swagger_dev.json"
   }`);
 
 const app = express();
@@ -14,9 +19,13 @@ const app = express();
 const whitelist =
   process.env.production == "PROD"
     ? [
-        "http://68.183.176.4:3001",
-        "http://68.183.176.4:3002",
-        "http://68.183.176.4:3000",
+        // "http://68.183.176.4:3001",
+        // "http://68.183.176.4:3002",
+        // "http://68.183.176.4:3000",
+        "http://157.245.152.83:3001",
+        "http://157.245.152.83:3002",
+        "http://157.245.152.83:3000",
+        "http://157.245.152.83:3003",
       ]
     : [
         "http://localhost:3000",
@@ -39,8 +48,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/v1", router);
 
+
+//ALL NOT FOUND ROUTES GO HERE
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+//GROBAL ERROR MIDDLEWERE
+app.use(GlobalErrorHandler);
+
 app.listen(port, () =>
-  console.log("APIS: API server conected on port: ", port)
+  console.log("DATABASE: conected on port: ", port)
 );
 
 module.exports = app;

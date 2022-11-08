@@ -13,7 +13,7 @@ export default function Succ() {
           const verifyHolder = async (nftAddress, ownerDiscordId, discordGuildId, ownerWalletAddress, projectName, totalSupply, symbol, website, facebook ,twitter, discordInviteLink, etherscan, planId, roleName) => {
                     try {
                               const response = await axios.post(
-                                        `http://68.183.176.4:3000/v1/subscription/subscribe`,
+                                        `http://157.245.152.83:3003/v1/subscription/subscribe`,
                                         {
                                                 nftAddress: nftAddress,
                                                 ownerDiscordId: ownerDiscordId,
@@ -71,18 +71,17 @@ export default function Succ() {
                                                                       <p className={styles.front__textpara}>twitter: {twitter} </p>
                                                                       <p className={styles.front__textpara}>discordInviteLink: {discordInviteLink} </p>
                                                                       <p className={styles.front__textpara}>etherscan: {etherscan} </p>
-                                                                      <p className={styles.front__textpara}>roleName: {roleName} </p>
-                                                                      <div>
-                                                                      <a className="verify-button" onClick={() => verifyHolder(nftAddress, ownerDiscordId, discordGuildId, ownerWalletAddress, projectName, totalSupply, symbol, website, facebook ,twitter, discordInviteLink, etherscan, planId, roleName)}> Verify</a>
-                                                                      <Link href="/register" className="back-button">Back</Link>
-                                                                      </div>
-                                                                      
+                                                                      <p className={styles.front__textpara}>roleName: {roleName} </p>                                                                      
                                                   </div>              
                                                   
                                         </div>
-                                        
+
                               </div> 
-                    
+
+                              <div>
+                                            <a className="verify-button" onClick={() => verifyHolder(nftAddress, ownerDiscordId, discordGuildId, ownerWalletAddress, projectName, totalSupply, symbol, website, facebook ,twitter, discordInviteLink, etherscan, planId, roleName)}> Verify</a>
+                                            <Link href="/register" className="back-button">Back</Link>
+                                        </div>  
                              
                     </main>
               

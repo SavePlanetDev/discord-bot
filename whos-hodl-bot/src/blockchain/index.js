@@ -55,7 +55,7 @@ const onTransferEvent = async () => {
   });
 };
 
-onTransferEvent();
+// onTransferEvent();
 
 //tracking transfer event for give discord user a role and nickname
 // punkkub.on("Transfer", async (from, to, tokenId) => {

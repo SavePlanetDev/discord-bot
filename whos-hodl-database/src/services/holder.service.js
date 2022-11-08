@@ -19,14 +19,6 @@ const createNewHolder = async (
   timestamp,
   verified
 ) => {
-  console.log({
-    nftAddress,
-    discordId,
-    walletAddress,
-    balance,
-    timestamp,
-    verified,
-  });
   const [newHolder, created] = await Holder.findOrCreate({
     where: { discordId, nftAddress },
     defaults: {
@@ -37,23 +29,23 @@ const createNewHolder = async (
       timestamp,
       verified,
     },
-  }).catch((e) => console.log("createNewHolder: ", e.message));
+  });
 
   if (created) {
     return newHolder;
   } else {
-    throw new Error(`${discordId} is been created for ${nftAddress} NFT.`);
+    return null;
   }
 };
 
 const getAllHolders = async () => {
   const results = await Holder.findAll();
-  return results;
+  return results.length <= 0 ? [] : results;
 };
 
 const getAllHoldersByNft = async (nftAddress) => {
   const results = await Holder.findAll({ where: { nftAddress } });
-  return results;
+  return results.length <= 0 ? [] : results;
 };
 
 const getHolder = async (discordId, nftAddress) => {
@@ -67,18 +59,22 @@ const getHolderByWallet = async (wallet, nftAddress) => {
 };
 
 const updateHolder = async (discordId, nftAddress, data) => {
-  await Holder.update(data, { where: { discordId, nftAddress } });
+  const updated = await Holder.update(data, { where: { discordId, nftAddress } });
+  return updated <= 0 ? false : true;
 };
 
 const updateVerifyStatus = async (discordId, nftAddress, verified) => {
-  await Holder.update({ verified }, { where: { discordId, nftAddress } });
+  const updated = await Holder.update({ verified }, { where: { discordId, nftAddress } });
+  return updated <= 0 ? false : true;
 };
 
 const updateHolderBalance = async (discordId, nftAddress, balance) => {
-  await Holder.update({ balance }, { where: { discordId, nftAddress } });
+  const updated = await Holder.update({ balance }, { where: { discordId, nftAddress } });
+  return updated <= 0 ? false : true;
 };
 const deleteHolder = async (discordId, nftAddress) => {
-  await Holder.delete({ where: { discordId, nftAddress } });
+  const deleted = await Holder.delete({ where: { discordId, nftAddress } });
+  return deleted <= 0 ? false : true;
 };
 
 module.exports = {

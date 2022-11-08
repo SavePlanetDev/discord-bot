@@ -12,24 +12,24 @@ Plan.init(
       autoIncrement: true,
     },
     planName: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
     //@NON : Pricing in USDT ?
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     period: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
   },
-  { sequelize }
+  { sequelize, }
 );
 
 module.exports = Plan;
