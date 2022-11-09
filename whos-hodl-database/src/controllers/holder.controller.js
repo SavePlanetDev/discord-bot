@@ -75,7 +75,7 @@ const holderByWallet = catchAsync(async (req, res, next) => {
 
   return !result
     ? next(
-        AppError(
+        new AppError(
           `holder ${wallet} not found for nft ${nftAddress}`,
           404,
           "holderByWallet"
@@ -138,7 +138,7 @@ const updateHolderById = catchAsync(async (req, res, next) => {
     )
   );
 
-  return !result == false
+  return !result 
     ? next(new AppError(`nothing updated ...`, 403, "updateHolderById"))
     : responseData(res, discordId, 200, "updateHolderById", "holder update OK");
 });
@@ -156,7 +156,7 @@ const updateVerify = catchAsync(async (req, res, next) => {
     )
   );
 
-  return result == false
+  return !result 
     ? next(new AppError(`nothing updated ...`, 403, "updateVerify"))
     : responseData(
         res,
@@ -183,7 +183,7 @@ const updateBalance = catchAsync(async (req, res, next) => {
       )
     )
   );
-  result == false
+  return !result 
     ? next(AppError(`nothing updated ...`, 403, "updateBalance"))
     : responseData(
         res,

@@ -42,8 +42,8 @@ export default function Succ() {
   ) => {
     try {
       const response = await axios.post(
-        // `http://157.245.152.83:3003/v1/subscription/subscribe`,
-        `http://localhost:3003/v1/subscription/subscribe`,
+        `http://157.245.152.83:3003/v1/subscription/subscribe`,
+        // `http://localhost:3003/v1/subscription/subscribe`,
         {
           nftAddress: nftAddress,
           ownerDiscordId: ownerDiscordId,

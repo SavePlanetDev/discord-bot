@@ -4,12 +4,12 @@ services:
     # will build ./docker/web/Dockerfile
     build: ./whos-hodl-bot
     ports:
-      - "3000:3000"
+      - "3000:3001"
     volumes:
       - .:/code
   subsubcriber:
     # will build ./docker/web/Dockerfile
-    build: ./whos-hold-subscribe
+    build: ./whos-hodl-subscribe
     ports:
       - "3001:3000"
     volumes:
@@ -24,7 +24,7 @@ services:
   database:
     build: "./whos-hodl-database"
     ports:
-      - "3003:3000"
+      - "3003:3003"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:

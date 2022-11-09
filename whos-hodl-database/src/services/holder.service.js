@@ -54,12 +54,12 @@ const getHolder = async (discordId, nftAddress) => {
 };
 
 const getHolderByWallet = async (wallet, nftAddress) => {
-  const result = await Holder.findOne({ where: { discordId, nftAddress } });
+  const result = await Holder.findOne({ where: { walletAddress: wallet, nftAddress } });
   return result === undefined ? null : result;
 };
 
-const updateHolder = async (discordId, nftAddress, data) => {
-  const updated = await Holder.update(data, {
+const updateHolder = async (discordId, nftAddress, {data}) => {
+  const updated = await Holder.update({...data}, {
     where: { discordId, nftAddress },
   });
   return updated <= 0 ? false : true;
