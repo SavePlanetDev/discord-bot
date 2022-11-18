@@ -1,8 +1,12 @@
+require("dotenv").config();
 module.exports = {
   plan: {
     FREE: "free",
     NOOB: "noob",
     PRO: "pro",
   },
-  verifyUrl: "http://68.183.176.4:3002/",
+  verifyUrl:
+    process.env.production == "PROD"
+      ? "http://157.245.152.83:3002/"
+      : "http://localhost:3002",
 };

@@ -1,0 +1,253 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Whos-Hodl DISCORD API",
+    "description": "Whos-Hodl ON-DISCORD BOT",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "paths": {
+    "/subscription/subscribe/": {
+      "post": {
+        "tags": ["Subscriptions"],
+        "summary": "[MAIN] this api for user make subscription to the project",
+        "parameters": [
+          {
+            "name": "user subscription aggreagtes",
+            "in": "body",
+            "required": true,
+            "description": "user subscription data parameters",
+            "schema": {
+              "$ref": "#/definitions/UserSubscription"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseSubscription"
+            }
+          }
+        }
+      }
+    },
+    "/holder/verify": {
+      "post": {
+        "tags": ["Holders"],
+        "summary": "[MAIN] this api used for Holder of any project to verify their right",
+        "parameters": [
+          {
+            "name": "verification data",
+            "in": "body",
+            "required": true,
+            "description": "verification data model",
+            "schema": {
+              "$ref": "#/definitions/HolderVerification"
+            }
+          }
+        ],
+        "products": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VerifiedHolder"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserSubscription": {
+      "required": [
+        "planId",
+        "nftAddress",
+        "ownerDiscordId",
+        "discordGuildId",
+        "ownerWalletAddress",
+        "projectName",
+        "totalSupply",
+        "symbol",
+        "discordInviteLink",
+        "roleName"
+      ],
+      "properties": {
+        "nftAddress": {
+          "type": "string",
+          "uniqueItems": true,
+          "definition": "nft smart contract address"
+        },
+        "ownerDiscordId": {
+          "type": "string",
+          "definition": "owner discord id"
+        },
+        "discordGuildId": {
+          "type": "string",
+          "definition": "project discord id"
+        },
+        "ownerWalletAddress": {
+          "type": "string",
+          "definition": "owner wallet address [evm]"
+        },
+        "projectName": {
+          "type": "string",
+          "definition": "project name"
+        },
+        "totalSupply": {
+          "type": "string",
+          "definition": "nft total supply"
+        },
+        "symbol": {
+          "type": "string",
+          "definition": "nft symbol"
+        },
+        "website": {
+          "type": "string"
+        },
+        "facebook": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "discordInviteLink": {
+          "type": "string"
+        },
+        "etherscan": {
+          "type": "string"
+        },
+        "planId": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        }
+      }
+    },
+
+    "ResponseSubscription": {
+      "required": [],
+      "properties": {
+        "nftAddress": {
+          "type": "string",
+          "definition": "nft smart contract address",
+          "uniqueItems": "true"
+        },
+        "ownerDiscordId": {
+          "type": "string",
+          "definition": "project owner discord Id"
+        },
+        "discordGuildId": {
+          "type": "string",
+          "definition": "project discord id"
+        },
+        "ownerWalletAddress": {
+          "type": "string",
+          "definition": "project owner wallet address [evm]"
+        },
+        "projectName": {
+          "type": "string",
+          "definition": "nft project name"
+        },
+        "totalSupply": {
+          "type": "string",
+          "definition": "project total supply"
+        },
+        "symbol": {
+          "type": "string",
+          "definition": "nft project symbol"
+        },
+        "website": {
+          "type": "string",
+          "definition": "project website url"
+        },
+        "facebook": {
+          "type": "string",
+          "definition": "project facebook url"
+        },
+        "twitter": {
+          "type": "string",
+          "definition": "project twitter url"
+        },
+        "discordInviteLink": {
+          "type": "string",
+          "definition": "invitation link of project discord"
+        },
+        "etherscan": {
+          "type": "string",
+          "definition": "nft smart contract on block explorer url"
+        },
+        "start": {
+          "type": "string",
+          "definition": "project start of subscription timestamp [unix]"
+        },
+        "end": {
+          "type": "string",
+          "definition": "project end of subscription timestamp [unix]"
+        },
+        "planName": {
+          "type": "string",
+          "definition": "selected subscription plan name"
+        }
+      }
+    },
+
+    "HolderVerification": {
+      "required": ["walletAddress", "discordId", "discordGuildId"],
+      "properties": {
+        "walletAddress": {
+          "type": "string"
+        },
+        "discordId": {
+          "type": "string"
+        },
+        "discordGuildId": {
+          "type": "string"
+        }
+      }
+    },
+
+    "VerifiedHolder": {
+      "required": [],
+      "properties": {
+        "nftAddress": {
+          "type": "string",
+          "definition": "nft smart contract address"
+        },
+        "discordGuildId": {
+          "type": "string",
+          "definition": "guild discord id"
+        },
+        "discordId": {
+          "type": "string",
+          "definition": "nft holder discordId"
+        },
+        "balance": {
+          "type": "integer",
+          "definition": "balance of nft of holder"
+        },
+        "role": {
+          "type": "string",
+          "definition": "the role that gave to holder"
+        }
+      }
+    }
+  },
+  "host": "localhost:3002",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "API",
+      "description": "Whos-Hodl Backend API"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "products": ["application/json"]
+}

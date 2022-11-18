@@ -1,13 +1,13 @@
 const { ethers } = require("ethers");
 const client = require("../discord/discord.client");
+const { setRole, removeRole } = require("../discord/handlers/role.handler");
 const {
-  fetchRole,
-  setRole,
-  removeRole,
-} = require("../discord/handlers/role.handler");
-const { getAllProjects } = require("../apis/services/project.service");
-const { getHolderByWallet } = require("../apis/services/holder.service");
-const { parseDataObject } = require("../apis/utils/parseSqliteObject");
+  getAllProjects,
+} = require("../apis/services/remotes-db/project.service");
+const {
+  getHolderByWallet,
+  updateHolder,
+} = require("../apis/services/remotes-db/holder.service");
 
 const provider = new ethers.providers.JsonRpcProvider(
   "https://rpc.bitkubchain.io"
@@ -24,60 +24,55 @@ const getContract = (address) => {
 };
 
 const onTransferEvent = async () => {
-  console.log("on transfer function ready");
-  const results = await getAllProjects();
-  // const projects = parseDataObject(results);
-  projects = [
-    "0x6d5724cc5125c2de0debacb779a11307b3abade9",
-    "0x9E718B5D46D100E021537E59130Bed9991D78eC0",
-    "0x9f5eF88624bfEdAB84AcD900Be92D2f94acA23Af",
-    "0xfF2f5342FF8fFfA17a04aA5CbC162001A25B71a7",
-  ];
-  projects.forEach((project) => {
-    const contract = getContract(project);
+  const project = await getAllProjects();
+  project.forEach((project) => {
+    const contract = getContract(project.nftAddress);
     contract.on("Transfer", async (from, to, tokenId) => {
-      console.log(
-        `[${project}] : ${tokenId.toString()} from ${from} to ${to} transfered`
-      );
-      // if (isMarketPlace(to)) {
-      //   await onTransferUpdateRole(from);
-      // } else if (isMarketPlace(from)) {
-      //   await onTransferUpdateRole(to);
-      // } else {
-      //   await onTransferUpdateRole(to);
-      //   await onTransferUpdateRole(from);
-      // }
+      if (isMarketPlace(to)) {
+        await onTransferUpdateRole(from, contract.address, project);
+      } else if (isMarketPlace(from)) {
+        await onTransferUpdateRole(to, contract.address, project);
+      } else {
+        await onTransferUpdateRole(to, contract.address, project);
+        await onTransferUpdateRole(from, contract.address, project);
+      }
     });
   });
 };
 
-// onTransferEvent();
-
-//tracking transfer event for give discord user a role and nickname
-// punkkub.on("Transfer", async (from, to, tokenId) => {
-//   if (isMarketPlace(to)) {
-//     await onTransferUpdateRole(from);
-//   } else if (isMarketPlace(from)) {
-//     await onTransferUpdateRole(to);
-//   } else {
-//     await onTransferUpdateRole(to);
-//     await onTransferUpdateRole(from);
-//   }
-// });
-
-//TODO: ROLE
 async function onTransferUpdateRole(wallet, contract, project) {
   const holderData = await getHolderByWallet(wallet, contract.address);
   const balance = await contract.balanceOf(wallet);
   if (balance > 0 && holderData && holderData.wallet == wallet) {
     console.log(`@${wallet} : is holder.`);
-    const role = await fetchRole(client, project.discordGuilId, project.role);
-    await setRole(client, project.discordGuilId, holderData.discordId);
-    await updateVerificationStatus(wallet, balance, true);
+    await setRole(
+      client,
+      project.discordGuilId,
+      holderData.discordId,
+      project.roles[0]
+    );
+    await updateHolder(holderData.discordId, contract.address, {
+      nftAddress: contract.address,
+      discordId: holderData.discordId,
+      balance,
+      timestamp: new Date().getTime(),
+      verified: true,
+    });
   } else if (balance <= 0 && holderData && holderData.wallet == wallet) {
     console.log(`@${wallet} : is NOT holder`);
-    await removeRole(client, project.discordGuildId, holderData.discordId);
-    await updateVerificationStatus(wallet, balance, false);
+    await removeRole(
+      client,
+      project.discordGuildId,
+      holderData.discordId,
+      project.roles[0]
+    );
+    await updateHolder(holderData.discordId, contract.address, {
+      nftAddress: contract.address,
+      discordId: holderData.discordId,
+      balance,
+      timestamp: new Date().getTime(),
+      verified: false,
+    });
   } else {
     console.log(`transfer from non-verified holder. @${wallet}`);
   }
@@ -85,15 +80,23 @@ async function onTransferUpdateRole(wallet, contract, project) {
 
 //check if receiver is marketplace
 function isMarketPlace(to) {
-  let marketPlaceAddress = "0x874987257374cAE9E620988FdbEEa2bBBf757cA9";
+  let marketPlaceAddress = [
+    "0x874987257374cAE9E620988FdbEEa2bBBf757cA9",
+    "0xd7C1b83B1926Cc6971251D0676BAf239Ee7F804e",
+  ];
+
   let middleAddress = "0xA51b0F76f0d7d558DFc0951CFD74BB85a70E2a95";
 
-  if (to === marketPlaceAddress || to === middleAddress) {
+  const foundMarket = marketPlaceAddress.find((market) => market == to);
+
+  if (to === foundMarket || to === middleAddress) {
     return true;
   } else {
     return false;
   }
 }
+
+onTransferEvent();
 
 module.exports = {
   getContract,
