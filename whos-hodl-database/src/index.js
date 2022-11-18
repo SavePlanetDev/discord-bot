@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./database");
 const express = require("express");
 const port = process.env.PORT | 3003;
 const cors = require("cors");
@@ -30,6 +31,7 @@ const whitelist =
         "http://localhost:3000",
         "http://localhost:3001",
         "http://localhost:3002",
+        "http://localhost:3003",
       ];
 const corsOptions = {
   origin: function (origin, callback) {

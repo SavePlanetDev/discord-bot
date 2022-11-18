@@ -17,7 +17,7 @@ const createNewPlan = async (planName, price, period, description) => {
       period,
       description,
     },
-  });
+  }).catch((e) => console.log(e.message));
   if (created) {
     return newPlan;
   } else {

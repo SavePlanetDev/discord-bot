@@ -70,13 +70,13 @@ const updateHolder = async (discordId, nftAddress, data) => {
   return response.data;
 };
 
-const updateVerifyStatus = async (discordId, nftAddress, verified) => {
-  await Holder.update({ verified }, { where: { discordId, nftAddress } });
-};
+// const updateVerifyStatus = async (discordId, nftAddress, verified) => {
+//   await Holder.update({ verified }, { where: { discordId, nftAddress } });
+// };
 
-const updateHolderBalance = async (discordId, nftAddress, balance) => {
-  await Holder.update({ balance }, { where: { discordId, nftAddress } });
-};
+// const updateHolderBalance = async (discordId, nftAddress, balance) => {
+//   await Holder.update({ balance }, { where: { discordId, nftAddress } });
+// };
 
 // const deleteHolder = async (discordId, nftAddress) => {
 //   await Holder.delete({ where: { discordId, nftAddress } });
@@ -88,8 +88,8 @@ module.exports = {
   getAllHoldersByNft,
   getHolder,
   getHolderByWallet,
-  updateHolderBalance,
-  updateVerifyStatus,
+  // updateHolderBalance,
+  // updateVerifyStatus,
   updateHolder,
   //   deleteHolder,
 };

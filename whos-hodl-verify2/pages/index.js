@@ -1,9 +1,9 @@
-
-import Homepage from './homepage';
+import Homepage from "./homepage";
 
 export default function Home() {
-
-          return <>
-                    <Homepage />
-          </>
+  return (
+    <>
+      <Homepage />
+    </>
+  );
 }

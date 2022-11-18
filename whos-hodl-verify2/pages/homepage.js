@@ -14,9 +14,12 @@ export default function Homepage() {
   const { discordId, guildId } = router.query;
 
   const verifyHolder = async (discordId, guildId, address) => {
+    const [nftAddress, setNftAddres] = useState(undefined);
+
     try {
       const response = await axios.post(
-        `http://157.245.152.83:3000/v1/holder/verify`,
+        // `http://157.245.152.83:3000/v1/holder/verify`,
+        `http://localhost:3001/v1/holder/verify`,
         {
           walletAddress: address,
           discordId: discordId,

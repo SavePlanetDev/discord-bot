@@ -49,7 +49,9 @@ const getAllHoldersByNft = async (nftAddress) => {
 };
 
 const getHolder = async (discordId, nftAddress) => {
-  const result = await Holder.findOne({ where: { discordId, nftAddress } });
+  const result = await Holder.findOne({
+    where: { walletAddress: discordId, nftAddress },
+  });
   return result === undefined ? null : result;
 };
 
