@@ -3,7 +3,7 @@ const { Sequelize } = require("sequelize");
 const { production } = process.env;
 
 const sequelize = new Sequelize(
-  production == "PROD" ? "whoshodl" : "whos-hodl",
+  production == "PROD" ? "whos-hodl" : "whos-hodl",
   "non",
   "apollo2022team@-<A",
   {
