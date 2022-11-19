@@ -19,12 +19,8 @@ services:
   database:
     image: postgres:14.1-alpine
     restart: always
-    environment: 
-     - POSTGRES_USER=non
-     - POSTGRES_PASSWORD=apollo2022team@-<A
-     - POSTGRES_DB=whos-hodl
+  environment:
     ports:
       - "5432:5432"
     volumes:
       - "./whos-hodl-database/postgres/data:/var/lib/postgresql"
-
