@@ -1,15 +1,16 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
-const { production } = process.env;
+const { production, postgres_db, postgres_user, postgres_pwd, postgres_port } =
+  process.env;
 
 const sequelize = new Sequelize(
-  production == "PROD" ? "whos-hodl" : "whos-hodl",
-  "non",
-  "apollo2022team@-<A",
+  production == "PROD" ? postgres_db : postgres_db,
+  postgres_user,
+  postgres_pwd,
   {
     host:
       production === "PROD" ? "host.docker.internal" : "host.docker.internal",
-    port: 5432,
+    port: postgres_port,
     dialect: "postgres",
   }
 );
