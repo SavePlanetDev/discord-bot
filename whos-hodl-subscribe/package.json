@@ -1,5 +1,5 @@
 {
-  "name": "whos-hold-subscribe",
+  "name": "whos-hold-sub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^0.7.4",
     "axios": "^1.1.3",
-    "jquery": "^3.6.1",
-    "next": "13.0.0",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.2",
+    "ethers": "^5.7.2",
+    "lodash.merge": "^4.6.2",
+    "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.55.0"
-  },
-  "devDependencies": {
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0"
+    "react-player": "^2.11.0",
+    "sass": "^1.56.1",
+    "wagmi": "^0.7.14"
   }
 }
