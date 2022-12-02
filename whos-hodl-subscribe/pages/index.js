@@ -5,17 +5,12 @@ import Subplant from '../componance/subplant.page'
 import Plan from '../componance/plan.page'
 
 export default function Home() {
-  return ( <div>
-          <div>
+  return ( 
           <div className={styles.container}>
           <Headerpage/>
           <Plan/>
           {/* <Subplant/> */}
-          
-          </div>
-          </div>
-          
-  </div>
+            </div>
     
   )
 }

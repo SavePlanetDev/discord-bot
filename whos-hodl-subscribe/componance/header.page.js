@@ -7,8 +7,8 @@ export default function Headerpage(){
           return <div>
                    <div className={style.logocontaner}>
                     
-                    <Link href="/"><Image src="/holdseeds.png" alt="Logo" width={97} height={97}/>
-                   <Image className={style.whosholdtext} src="/whoshold.png" alt="Logo" width={260} height={28}/>
+                   <Link href="/" ><Image src="/holdseeds.png" alt="Logo" className={style.imagelogo} width="100" height={100} />
+                   <Image className={style.whosholdtext} src="/whoshold.png"  width="550" height={200} />
                    </Link>
                    
                    <div className={style.buttonconnect}><ConnectButton /></div>
