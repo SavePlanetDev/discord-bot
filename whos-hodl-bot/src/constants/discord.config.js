@@ -5,8 +5,8 @@ module.exports = {
     NOOB: "noob",
     PRO: "pro",
   },
-  verifyUrl:
-    process.env.production == "PROD"
-      ? "http://157.245.152.83:3002/"
-      : "http://localhost:3002",
+  verifyUrl: "http://localhost:3000",
+  // process.env.production == "PROD"
+  //   ? "http://157.245.152.83:3002/"
+  //   : "http://localhost:3000",
 };

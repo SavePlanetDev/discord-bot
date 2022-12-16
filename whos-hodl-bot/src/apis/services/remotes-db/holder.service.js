@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { remote_database } = require("../../../constants/database.config");
-const baseRoute = "holder";
+const baseRoute = "v1/holder";
 /**
  *
  * @param {string} nftAddress
@@ -54,10 +54,9 @@ const getHolder = async (discordId, nftAddress) => {
 
 const getHolderByWallet = async (wallet, nftAddress) => {
   const response = await axios
-    .get(`${remote_database}/${baseRoute}/wallet/${wallet}/${nftAddress}`)
+    .get(`${remote_database}/${baseRoute}/${wallet}/${nftAddress}`)
     .catch((e) => "getHolderByWallet: ", e.message);
 
-  console.log(response);
   return response.data.data;
 };
 

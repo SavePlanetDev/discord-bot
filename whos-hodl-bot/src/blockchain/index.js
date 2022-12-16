@@ -1,13 +1,19 @@
 const { ethers } = require("ethers");
 const client = require("../discord/discord.client");
 const { setRole, removeRole } = require("../discord/handlers/role.handler");
-const {
-  getAllProjects,
-} = require("../apis/services/remotes-db/project.service");
+const { getAllProjects } = require("../database/services/project.service");
 const {
   getHolderByWallet,
-  updateHolder,
-} = require("../apis/services/remotes-db/holder.service");
+  apiUpdateVerificationState,
+} = require("../database/services/holder.service");
+const {
+  addToDependency,
+  getHowManyInSideOf,
+  removeFromDependency,
+} = require("../database/services/holder.d.service");
+const {
+  getDependencyByAddress,
+} = require("../database/services/dependencies.service");
 
 const provider = new ethers.providers.JsonRpcProvider(
   "https://rpc.bitkubchain.io"
@@ -24,75 +30,206 @@ const getContract = (address) => {
 };
 
 const onTransferEvent = async () => {
+  // Get all Projects address and see if any transfering occurred
   const project = await getAllProjects();
+
   project.forEach((project) => {
     const contract = getContract(project.nftAddress);
-    contract.on("Transfer", async (from, to, tokenId) => {
-      if (isMarketPlace(to)) {
-        await onTransferUpdateRole(from, contract.address, project);
-      } else if (isMarketPlace(from)) {
-        await onTransferUpdateRole(to, contract.address, project);
+    // TRANSFER EVENT HERE
+    contract.on("Transfer", async (from, to, _tokenId) => {
+      //PARSE TOKEN ID TO NUMBER
+      let tokenId = parseInt(_tokenId.toString());
+      //CHECKING THE DEPENDENCIES AND SET ROLE
+      //-- 1. if (to) address is the dependency address?, that's mean some one transfering token to the denpendency of the nft (eg. mining pool)
+      if ((await checkDependencies(to)).result) {
+        // -- get the dependency data
+        const dependency = await checkDependencies(to);
+        // -- onTransfer Core process
+        await onTransferUpdateRole(
+          from,
+          contract,
+          tokenId,
+          project,
+          dependency,
+          0
+        );
+      } else if ((await checkDependencies(from)).result) {
+        const dependency = await checkDependencies(from);
+        await onTransferUpdateRole(
+          to,
+          contract,
+          tokenId,
+          project,
+          dependency,
+          1
+        );
       } else {
-        await onTransferUpdateRole(to, contract.address, project);
-        await onTransferUpdateRole(from, contract.address, project);
+        await onTransferUpdateRole(to, contract, tokenId, project);
+        await onTransferUpdateRole(from, contract, tokenId, project);
       }
     });
   });
 };
 
-async function onTransferUpdateRole(wallet, contract, project) {
-  const holderData = await getHolderByWallet(wallet, contract.address);
-  const balance = await contract.balanceOf(wallet);
-  if (balance > 0 && holderData && holderData.wallet == wallet) {
+async function onTransferUpdateRole(
+  wallet,
+  contract,
+  tokenId,
+  project,
+  dependency,
+  direction
+) {
+  const holderData = await getHolderByWallet(wallet, project.nftAddress);
+  let balance = await contract.balanceOf(wallet);
+  let dependencyBal = await getHowManyInSideOf(
+    dependency.address,
+    holderData.walletAddress
+  );
+  balance = parseInt(balance.toString());
+
+  if (balance > 0 && holderData && holderData.walletAddress == wallet) {
     console.log(`@${wallet} : is holder.`);
-    await setRole(
-      client,
-      project.discordGuilId,
+    dependency.result
+      ? console.log(
+          `transfer ${direction == 0 ? "to" : "from"} ${dependency.name} ${
+            direction == 0 ? "from" : "to"
+          } ${wallet}`
+        )
+      : null;
+
+    /** @NOTICE in the case of holder send their token to dependency with type of 2 (not market) */
+    if (direction == 0 && dependency.result && dependency.type == 2) {
+      //1. set dependency role
+      await setRole(
+        client,
+        project.discordGuildId,
+        holderData.discordId,
+        dependency.result ? dependency.role : project.roles[0]
+      );
+      //2. add data to the dependency table
+      await addToDependency(
+        dependency.address,
+        holderData.walletAddress,
+        project.nftAddress,
+        tokenId
+      );
+    } else if (direction == 1 && dependency.result && dependency.type == 2) {
+      /**
+       * @Notice in the case of come back from dependency
+       */
+      console.log("dependency bal : ", dependencyBal);
+
+      if (dependencyBal <= 1) {
+        await removeRole(
+          client,
+          project.discordGuildId,
+          holderData.discordId,
+          dependency.role
+        );
+        await removeFromDependency(tokenId);
+      } else {
+        await removeFromDependency(tokenId);
+      }
+    } else {
+      await setRole(
+        client,
+        project.discordGuildId,
+        holderData.discordId,
+        project.roles[0]
+      );
+    }
+
+    await apiUpdateVerificationState(
+      contract.address,
       holderData.discordId,
-      project.roles[0]
-    );
-    await updateHolder(holderData.discordId, contract.address, {
-      nftAddress: contract.address,
-      discordId: holderData.discordId,
       balance,
-      timestamp: new Date().getTime(),
-      verified: true,
-    });
-  } else if (balance <= 0 && holderData && holderData.wallet == wallet) {
+      holderData.wallet,
+      true
+    );
+  } else if (balance <= 0 && holderData && holderData.walletAddress == wallet) {
     console.log(`@${wallet} : is NOT holder`);
-    await removeRole(
-      client,
-      project.discordGuildId,
-      holderData.discordId,
-      project.roles[0]
-    );
-    await updateHolder(holderData.discordId, contract.address, {
-      nftAddress: contract.address,
-      discordId: holderData.discordId,
-      balance,
-      timestamp: new Date().getTime(),
-      verified: false,
-    });
+    /**
+     * @Notice in the case of 0 balance with dependency is holder send all of their token to dependency
+     */
+
+    dependency.result
+      ? console.log(
+          `transfer ${direction == 0 ? "to" : "from"} ${dependency.name} ${
+            direction == 0 ? "from" : "to"
+          } ${wallet}`
+        )
+      : null;
+
+    /**
+     * @Notice in the case of send to dependency!
+     *
+     */
+    if (direction == 0 && dependency.result && dependency.type == 2) {
+      //1. remove standard role as has no balance in the wallet
+      await removeRole(
+        client,
+        project.discordGuildId,
+        holderData.discordId,
+        project.roles[0]
+      );
+      //2. set to dependency role in stead
+      await setRole(
+        client,
+        project.discordGuildId,
+        holderData.discordId,
+        dependency.role
+      );
+      await addToDependency(
+        dependency.address,
+        holderData.walletAddress,
+        project.nftAddress,
+        tokenId
+      );
+    } else if (direction == 1 && dependency.result && dependency.type == 2) {
+      if (dependencyBal <= 0) {
+        await removeRole(
+          client,
+          project.discordGuildId,
+          holderData.discordId,
+          dependency.role
+        );
+      } else {
+        await removeFromDependency(tokenId);
+      }
+    } else {
+      await removeRole(
+        client,
+        project.discordGuildId,
+        holderData.discordId,
+        project.roles[0]
+      );
+      await apiUpdateVerificationState(
+        contract.address,
+        holderData.discordId,
+        balance,
+        holderData.wallet,
+        false
+      );
+    }
   } else {
     console.log(`transfer from non-verified holder. @${wallet}`);
   }
 }
 
 //check if receiver is marketplace
-function isMarketPlace(to) {
-  let marketPlaceAddress = [
-    "0x874987257374cAE9E620988FdbEEa2bBBf757cA9",
-    "0xd7C1b83B1926Cc6971251D0676BAf239Ee7F804e",
-  ];
+async function checkDependencies(to) {
+  // const foundDependency = dependencies.find((d) => d.address == to);
+  const foundDependency = await getDependencyByAddress(to);
 
-  let middleAddress = "0xA51b0F76f0d7d558DFc0951CFD74BB85a70E2a95";
-
-  const foundMarket = marketPlaceAddress.find((market) => market == to);
-
-  if (to === foundMarket || to === middleAddress) {
-    return true;
+  if (foundDependency) {
+    return {
+      result: true,
+      ...foundDependency,
+    };
   } else {
-    return false;
+    return {
+      result: false,
+    };
   }
 }
 

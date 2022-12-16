@@ -26,6 +26,7 @@ const whitelist =
         "http://157.245.152.83:3002",
         "http://157.245.152.83:3000",
         "http://157.245.152.83:3003",
+        "http://localhost:3000",
       ]
     : [
         "http://localhost:3000",

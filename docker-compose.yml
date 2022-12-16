@@ -3,24 +3,27 @@ services:
   bot:
     build: "./whos-hodl-bot"
     ports:
-      - "3000:3000"
-    volumes:
-      - .:/code
+      - "3001:3001"
+    depends_on:
+      - api
   api:
     build: "./whos-hodl-database"
+    env_file: "./whos-hodl-database/.env"
     ports:
       - "3003:3003"
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    volumes:
-      - .:/code
     depends_on:
       - database
   database:
     image: postgres:14.1-alpine
     restart: always
-  environment:
+    # environment:
+    command: postgres -c stats_temp_directory=/tmp
     ports:
       - "5432:5432"
     volumes:
-      - "./whos-hodl-database/postgres/data:/var/lib/postgresql"
+      - "whos-hodl:/var/lib/postgresql/data"
+volumes:
+  whos-hodl:
+    external: true

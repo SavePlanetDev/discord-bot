@@ -1,34 +1,33 @@
-$beige: #F7EDB7;
-$dark-grey: #272F30;
-$orange: #E0401C;
-$red: #9E2B20;
-$warm-white: #FFFCEF;
-$light-blue: #D5FFFC;
+$beige: #f7edb7;
+$dark-grey: #272f30;
+$orange: #e0401c;
+$red: #9e2b20;
+$warm-white: #fffcef;
+$light-blue: #d5fffc;
 $dull-blue: #437299;
 $base-font: Oxygen, Arial, Helvetica, sans-serif;
 $heading-font: Oswald, Arial, Helvetica, sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@400;700&display=swap");
 
 .bodyplan {
-          background: linear-gradient(180deg, #CE04BA 0%, rgba(101, 7, 92, 0.44) 100%);
-          box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-          color: $dark-grey;
-          font: 16px $base-font;
-          font-weight: 300;
-          padding: 50px 0;
+  background: linear-gradient(180deg, #ce04ba 0%, rgba(101, 7, 92, 0.44) 100%);
+  box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+  color: $dark-grey;
+  font: 16px $base-font;
+  font-weight: 300;
+  padding: 50px 0;
 }
 
 .ul,
 .li {
-          list-style: none;
-          padding: 0;
-          margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .elementhidden {
-          display: none;
+  display: none;
 }
 
 .planname,
@@ -37,1586 +36,1546 @@ $heading-font: Oswald, Arial, Helvetica, sans-serif;
 .button,
 .moreoptions,
 .bestchoice {
-          padding: 10px;
+  padding: 10px;
 }
 
-
 .button {
-          color: #FFD233;
-          position: relative;
-          background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-          box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-          font-family: 'Montserrat', sans-serif;
-          top: 56%;
-          left: 40%;
-          font: 24px $heading-font;
-          font-size: 100%;
-          width: 20%;
-          border: 2px solid #FFAE26;
-          border-radius: 27px;
-          color: white;
+  color: #ffd233;
+  position: relative;
+  background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+  box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+  font-family: "Montserrat", sans-serif;
+  top: 56%;
+  left: 40%;
+  font: 24px $heading-font;
+  font-size: 100%;
+  width: 20%;
+  border: 2px solid #ffae26;
+  border-radius: 27px;
+  color: white;
 
-          &:hover {
-                    background: saturate(#ff8800 , 70%);
-          }
-          a{
-                    font-family: 'Montserrat';
-                    font-style: normal;
-                    font-weight: 700;
-
-          }
+  &:hover {
+    background: saturate(#ff8800, 70%);
+  }
+  a {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+  }
 }
 
 .plans {
-          margin: 0 auto;
-          max-width: 80%;
-          display: flex;
-          flex-flow: row wrap;
+  margin: 0 auto;
+  max-width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+
+  .planbox {
+    display: flex;
+    position: relative;
+    top: 200px;
+    width: 32%;
+    background: linear-gradient(
+      180deg,
+      #ce04ba 0%,
+      rgba(101, 7, 92, 0.44) 100%
+    );
+    box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+    border-radius: 27px;
+    margin: 10px 0;
+    min-height: 650px;
+
+    .bestchoice {
+      background: linear-gradient(180deg, #ce04ba 0%, #bc2fff 100%);
+      box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $dull-blue;
+      margin-top: auto;
+    }
+
+    &:hover {
+      margin-top: -15px;
+      background: linear-gradient(180deg, #ce04ba 0%, #bc2fff 100%);
+      box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
+
+      @media all and (max-width: 700px) {
+        margin-top: 10px;
+      }
+
+      .planname {
+        color: black;
+        width: 100px;
+        height: 30px;
+        left: 248px;
+        top: 566px;
+      }
+
+      .planprice {
+        text-align: center;
+      }
+
+      .moreoptions {
+        display: block;
+        padding: 20px;
+        text-align: right;
+        position: relative;
+
+        .additional-options {
           position: relative;
-
-          .planbox {
-                    display: flex;
-                    position: relative;
-                    top: 200px;
-                    width: 32%;
-                    background: linear-gradient(180deg, #CE04BA 0%, rgba(101, 7, 92, 0.44) 100%);
-                    box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-                    border-radius: 27px;
-                    margin: 10px 0;
-                    min-height: 650px;
-
-                    .bestchoice {
-                              background: linear-gradient(180deg, #CE04BA 0%, #BC2FFF 100%);
-                              box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-                              text-transform: uppercase;
-                              font-weight: 600;
-                              color: $dull-blue;
-                              margin-top: auto;
-                    }
-
-                    &:hover {
-                              margin-top: -15px;
-                              background: linear-gradient(180deg, #CE04BA 0%, #BC2FFF 100%);
-                              box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
-
-                              @media all and (max-width: 700px) {
-                                        margin-top: 10px;
-                              }
-
-                              
-
-                              .planname {
-                                        color: black;
-                                        width: 100px;
-                                        height: 30px;
-                                        left: 248px;
-                                        top: 566px;
-
-                              }
-
-                              .planprice {
-                                        text-align: center;
-
-                              }
-
-                              .moreoptions {
-                                        display: block;
-                                        padding: 20px;
-                                        text-align: right;
-                                        position: relative;
-
-                                        .additional-options {
-                                                  position: relative;
-                                                  text-align: left;
-                                                  width: 100%;
-                                                  margin: 0;
-                                        }
-
-                                        a {
-                                                  text-decoration: none;
-                                        }
-                              }
-                    }
-                    .mostpop {
-                              position: absolute;
-                              width: 40%;
-                              height: 64px;
-                              left: 0px;
-                              top: 0px;
-
-                              background: #FFAE26;
-                              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                              border-radius: 6px 30px 30px 0px;
-                    }
-
-                    .mostpoptext {
-
-                              position: relative;
-                              font-family: 'Poppins';
-                              font-style: normal;
-                              font-weight: 600;
-                              font-size: 100%;
-                              line-height: 30px;
-                              text-align: center;
-                              color: #FFFFFF;
-
-
-                    }
-
-                    @media all and (max-width: 700px) {
-                              &:first-child {
-                                        margin-bottom: 20px;
-
-                              }
-                    }
-
-                    &:lastchild {
-                              margin-right: 0;
-                    }
-
-                    &:nthchild(2) {
-                              margin-top: 0;
-
-                              position: relative;
-
-                              &:hover {
-                                        margin-top: -35px;
-
-                                        @media all and (max-width: 700px) {
-                                                  margin-top: 0px;
-                                                  marign-right: -30px;
-                                        }
-                              }
-                    }
-
-                    @media all and (max-width: 700px) {
-                              width: 100%;
-                    }
-          }
-
-          .planbox2 {
-                    display: flex;
-                    position: relative;
-                    width: 35%;
-                    background: linear-gradient(180deg, #dc05c7da 100%, rgba(101, 7, 92, 0.44) 0%);
-                    box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-                    border-radius: 27px;
-                    margin: 5px 0;
-                    min-height: 650px;
-
-                    .bestchoice {
-                              background: linear-gradient(180deg, #ff07e6 50%, #BC2FFF 50%);
-                              box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-                              text-transform: uppercase;
-                              font-weight: 600;
-                              color: $dull-blue;
-                              margin-top: auto;
-                    }
-
-                    .mostpop {
-                              position: absolute;
-                              width: 40%;
-                              height: 64px;
-                              left: 0px;
-                              top: 0px;
-
-                              background: #FFAE26;
-                              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                              border-radius: 6px 30px 30px 0px;
-                    }
-
-                    .mostpoptext {
-
-                              position: relative;
-                              font-family: 'Poppins';
-                              font-style: normal;
-                              font-weight: 600;
-                              font-size: 100%;
-                              line-height: 30px;
-                              text-align: center;
-                              color: #FFFFFF;
-
-
-                    }
-
-                    &:hover {
-                              margin-top: -15px;
-                              background: linear-gradient(180deg, #CE04BA 0%, #BC2FFF 100%);
-                              box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
-
-                              @media all and (max-width: 700px) {
-                                        margin-top: 10px;
-                              }
-
-                              .button {
-                                        padding: 20px;
-                                        font-size: 30px;
-                              }
-
-                              .planname {
-                                        color: black;
-                              }
-
-                              .planprice {
-                                        text-align: center;
-                              }
-
-                              .moreoptions {
-                                        display: block;
-                                        padding: 20px;
-                                        text-align: right;
-                                        position: relative;
-
-                                        .additional-options {
-                                                  position: relative;
-                                                  text-align: left;
-                                                  width: 100%;
-                                                  margin: 0;
-                                        }
-
-                                        a {
-                                                  text-decoration: none;
-                                        }
-                              }
-
-                    }
-
-                    @media all and (max-width: 700px) {
-                              &:first-child {
-                                        margin-bottom: 0px;
-                              }
-                    }
-
-                    &:lastchild {
-                              //margin-right: 0;
-                    }
-
-                    &:nthchild(2) {
-                              margin-top: 0;
-
-
-                              position: relative;
-
-                              &:hover {
-                                        margin-top: -35px;
-
-                                        @media all and (max-width: 700px) {
-
-                                                  marign-right: -30px;
-                                        }
-                              }
-                    }
-
-                    @media all and (max-width: 700px) {
-                              width: 100%;
-                              top: 190px;
-                    }
-          }
-
-          .planname {
-                    font: 300 32px $heading-font;
-                    text-align: center;
-                    margin: 0;
-                    padding: 20px;
-          }
-
-          .planpriceplan {
-                    font: 300 32px $heading-font;
-                    position: relative;
-                    top: 4%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #FFFFFF;
-          }
-
-          .planpriceplannoob {
-                    font: 300 32px $heading-font;
-                    position: relative;
-                    top: 4%;
-                    left: 33%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #FFFFFF;
-          }
-
-          .planholders {
-                    position: absolute;
-                    left: 14%;
-                    right: 14.86%;
-                    top: 15%;
-                    bottom: 31.45%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 48px;
-                    line-height: 72px;
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-          .planholders2{
-                    position: absolute;
-                    left: 14%;
-                    right: 14.86%;
-                    top: 22.96%;
-                    bottom: 31.46%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 24px;
-                    line-height: 36px;
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-          .hr{
-                    width: 80%;
-                    position: absolute;
-                    height: 0px;
-                    left: 20%;
-                    top: 30%;
-          }
-          .boxplan{
-
-                    position: relative;
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 20px;
-                    line-height: 231%;
-                    top:30%;
-                    /* or 35px */
-
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-          .planprice {
-                    color: white;
-                    display: flex;
-                    font: 24px $heading-font;
-                    padding: 20px 10px;
-                    text-align: center;
-
-                    strong {
-                              font-size: 34px;
-                              align-self: baseline;
-                              line-height: 1;
-                              font-weight: 500;
-                    }
-          }
-
-          .planoptions {
-                    display: flex;
-                    flex-flow: column;
-                    width: 100%;
-
-                    li {
-                              border-bottom: 1px solid #cdcdcd;
-                              padding: 5px 0;
-                              margin: 5px 0;
-                    }
-
-                    .button {
-                              margin-top: auto;
-                              color: #FFD233;
-                              font-family: 'Montserrat';
-                              font-style: normal;
-                              text-align: center;
-                              position: relative;
-                              top: -10%;
-                              left: 20%;
-                              font: 24px $heading-font;
-                              width: 60%;
-                              color: FFD233;
-                              border: 2px solid #FFD233;
-                              border-radius: 27px;
-
-                              &:hover {
-                                        background: saturate(#ffd3332f, 70%);
-                              }
-                    }
-                    .button22 {
-                              margin-top: auto;
-                              color: #ffffff;
-                              
-                              text-align: center;
-                              position: relative;
-                              top: -10%;
-                              left: 20%;
-                              font: 24px $heading-font;
-                              width: 60%;
-                              color: FFD233;
-                              border: 2px solid #FFAE26;
-                              border-radius: 27px;
-                              background-color: #FFAE26;
-                              height: 7.5%;
-
-
-                              &:hover {
-                                        background: saturate(#ff9100, 70%);
-                              }
-                    }
-                    .textbuttom22{
-                              position: relative;
-                              text-align: center;
-                              top:-16px;
-                    }
-          }
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    .mostpop {
+      position: absolute;
+      width: 40%;
+      height: 64px;
+      left: 0px;
+      top: 0px;
+
+      background: #ffae26;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 6px 30px 30px 0px;
+    }
+
+    .mostpoptext {
+      position: relative;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 100%;
+      line-height: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    @media all and (max-width: 700px) {
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:lastchild {
+      margin-right: 0;
+    }
+
+    &:nthchild(2) {
+      margin-top: 0;
+
+      position: relative;
+
+      &:hover {
+        margin-top: -35px;
+
+        @media all and (max-width: 700px) {
+          margin-top: 0px;
+          marign-right: -30px;
+        }
+      }
+    }
+
+    @media all and (max-width: 700px) {
+      width: 100%;
+    }
+  }
+
+  .planbox2 {
+    display: flex;
+    position: relative;
+    width: 35%;
+    background: linear-gradient(
+      180deg,
+      #dc05c7da 100%,
+      rgba(101, 7, 92, 0.44) 0%
+    );
+    box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+    border-radius: 27px;
+    margin: 5px 0;
+    min-height: 650px;
+
+    .bestchoice {
+      background: linear-gradient(180deg, #ff07e6 50%, #bc2fff 50%);
+      box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $dull-blue;
+      margin-top: auto;
+    }
+
+    .mostpop {
+      position: absolute;
+      width: 40%;
+      height: 64px;
+      left: 0px;
+      top: 0px;
+
+      background: #ffae26;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 6px 30px 30px 0px;
+    }
+
+    .mostpoptext {
+      position: relative;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 100%;
+      line-height: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    &:hover {
+      margin-top: -15px;
+      background: linear-gradient(180deg, #ce04ba 0%, #bc2fff 100%);
+      box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
+
+      @media all and (max-width: 700px) {
+        margin-top: 10px;
+      }
+
+      .button {
+        padding: 20px;
+        font-size: 30px;
+      }
+
+      .planname {
+        color: black;
+      }
+
+      .planprice {
+        text-align: center;
+      }
+
+      .moreoptions {
+        display: block;
+        padding: 20px;
+        text-align: right;
+        position: relative;
+
+        .additional-options {
+          position: relative;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media all and (max-width: 700px) {
+      &:first-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    &:lastchild {
+      //margin-right: 0;
+    }
+
+    &:nthchild(2) {
+      margin-top: 0;
+
+      position: relative;
+
+      &:hover {
+        margin-top: -35px;
+
+        @media all and (max-width: 700px) {
+          marign-right: -30px;
+        }
+      }
+    }
+
+    @media all and (max-width: 700px) {
+      width: 100%;
+      top: 190px;
+    }
+  }
+
+  .planname {
+    font: 300 32px $heading-font;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .planpriceplan {
+    font: 300 32px $heading-font;
+    position: relative;
+    top: 4%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .planpriceplannoob {
+    font: 300 32px $heading-font;
+    position: relative;
+    top: 4%;
+    left: 33%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .planholders {
+    position: absolute;
+    left: 14%;
+    right: 14.86%;
+    top: 15%;
+    bottom: 31.45%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .planholders2 {
+    position: absolute;
+    left: 14%;
+    right: 14.86%;
+    top: 22.96%;
+    bottom: 31.46%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .hr {
+    width: 80%;
+    position: absolute;
+    height: 0px;
+    left: 20%;
+    top: 30%;
+  }
+  .boxplan {
+    position: relative;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 231%;
+    top: 30%;
+    /* or 35px */
+
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .planprice {
+    color: white;
+    display: flex;
+    font: 24px $heading-font;
+    padding: 20px 10px;
+    text-align: center;
+
+    strong {
+      font-size: 34px;
+      align-self: baseline;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+
+  .planoptions {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    li {
+      border-bottom: 1px solid #cdcdcd;
+      padding: 5px 0;
+      margin: 5px 0;
+    }
+
+    .button {
+      margin-top: auto;
+      color: #ffd233;
+      font-family: "Montserrat";
+      font-style: normal;
+      text-align: center;
+      position: relative;
+      top: -10%;
+      left: 20%;
+      font: 24px $heading-font;
+      width: 60%;
+      color: FFD233;
+      border: 2px solid #ffd233;
+      border-radius: 27px;
+
+      &:hover {
+        background: saturate(#ffd3332f, 70%);
+      }
+    }
+    .button22 {
+      margin-top: auto;
+      color: #ffffff;
+
+      text-align: center;
+      position: relative;
+      top: -10%;
+      left: 20%;
+      font: 24px $heading-font;
+      width: 60%;
+      color: FFD233;
+      border: 2px solid #ffae26;
+      border-radius: 27px;
+      background-color: #ffae26;
+      height: 7.5%;
+
+      &:hover {
+        background: saturate(#ff9100, 70%);
+      }
+    }
+    .textbuttom22 {
+      position: relative;
+      text-align: center;
+      top: -16px;
+    }
+  }
 }
 
 .p1 {
-          position: relative;
-          top: 166px;
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 40px;
-          /* or 49px */
+  position: relative;
+  top: 166px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  /* or 49px */
 
-          text-align: center;
+  text-align: center;
 
-          color: #FFFFFF;
+  color: #ffffff;
 }
-
 
 .p11 {
-          position: relative;
-          top: 140px;
+  position: relative;
+  top: 140px;
 
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 40px;
-          line-height: 122.5%;
-          /* or 49px */
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 122.5%;
+  /* or 49px */
 
-          text-align: center;
+  text-align: center;
 
-          color: #FFFFFF;
+  color: #ffffff;
 }
 
-.p12{
-          position: relative;
-          top:-10%;
-          left: -10%;
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 40px;
-          /* or 49px */
+.p12 {
+  position: relative;
+  top: -10%;
+  left: -10%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  /* or 49px */
 
-          text-align: center;
+  text-align: center;
 
-          color: #FFFFFF;
+  color: #ffffff;
 }
 .p2 {
-          position: relative;
-          top: 110px;
+  position: relative;
+  top: 110px;
 
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 24px;
-          text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
 
-          color: #FFFFFF;
+  color: #ffffff;
 }
 
 .p21 {
-          position: relative;
-          top:-10%;
-          left: -10%;
+  position: relative;
+  top: -10%;
+  left: -10%;
 
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 24px;
-          text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
 
-          color: #FFFFFF;
+  color: #ffffff;
 }
 
 .line1 {
-          position: relative;
-          width: 352px;
-          top: 210px;
-          left: 803px;
+  position: relative;
+  width: 352px;
+  top: 210px;
+  left: 803px;
 
-
-          border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 .line2 {
+  position: relative;
+  width: 352px;
+  top: 210px;
+  left: 303px;
 
-          position: relative;
-          width: 352px;
-          top: 210px;
-          left: 303px;
-
-          border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 .textcontanner {
-          position: relative;
-          top: -130px;
-
-
+  position: relative;
+  top: -130px;
 }
-
 
 .plans2 {
-          margin: 0 auto;
-          max-width: 60%;
-          display: flex;
-          flex-flow: row wrap;
+  margin: 0 auto;
+  max-width: 60%;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  margin: 0 auto;
+  max-width: 60%;
+  display: flex;
+  flex-flow: row wrap;
+
+  .planbox {
+    display: flex;
+    position: relative;
+    top: 100px;
+    width: 100%;
+    background: linear-gradient(180deg, #ce04ba 0%, #bc2fff 100%);
+    box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
+    border-radius: 27px;
+    margin: 20px 0;
+    min-height: 547px;
+    .hr {
+      width: 70%;
+      position: absolute;
+      height: 0px;
+      left: 10%;
+      top: 53%;
+    }
+    .headername {
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      left: 10%;
+      top: 45%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 36px;
+      /* identical to box height, or 90% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .nftaddress {
+      position: absolute;
+      width: 288px;
+      height: 184px;
+      left: 10%;
+      top: 60%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: px;
+      line-height: 32px;
+      /* or 162% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .roleverify {
+      position: absolute;
+      width: 288px;
+      height: 184px;
+      left: 10%;
+      top: 75%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: px;
+      line-height: 32px;
+      /* or 162% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .verified {
+      position: absolute;
+      width: 100%;
+      height: 46px;
+      left: 10%;
+      top: 53%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      /* or 102% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .verifiedinfo {
+      position: absolute;
+      width: 80%;
+      height: 102px;
+      left: 10%;
+      top: 70%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 17px;
+      line-height: 32px;
+      /* or 162% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .verifiedinfofail {
+      position: absolute;
+      width: 60%;
+      height: 102px;
+      left: 10%;
+      top: 55%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 17px;
+      line-height: 32px;
+      /* or 162% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .balance {
+      position: absolute;
+      width: 288px;
+      height: 184px;
+      left: 50%;
+      top: 60%;
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 32px;
+      /* or 162% */
+
+      letter-spacing: 0.1px;
+
+      color: #ffffff;
+    }
+    .logoprofile {
+      position: absolute;
+      left: 70%;
+      top: -18%;
+      filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
+    }
+    .headerbaner {
+      position: relative;
+      min-width: 100%;
+      max-height: 40%;
+      left: 0px;
+      top: 0px;
+      border-radius: 27px 27px 0px 0px;
+      background: linear-gradient(
+        180deg,
+        #470a77 0%,
+        rgba(195, 32, 230, 0) 100%
+      );
+    }
+    .bestchoice {
+      background: linear-gradient(180deg, #ce04ba 0%, #bc2fff 100%);
+      box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $dull-blue;
+      margin-top: auto;
+    }
+    .mostpop {
+      position: absolute;
+      width: 25%;
+      height: 64px;
+      left: 0px;
+      top: 0px;
+
+      background: #ffae26;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 6px 30px 30px 0px;
+    }
+
+    .mostpoptext {
+      position: relative;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 120%;
+      line-height: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .column {
+      float: left;
+      width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .box {
+      box-sizing: border-box;
+      position: absolute;
+      border: 2px solid #ffffff;
+      border-radius: 40px;
+    }
+    input {
+      position: relative;
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 40px;
+      width: 85%;
+      left: 4%;
+      height: 55px;
+      background: transparent;
+      border: 3px solid white;
+      color: white;
+      text-align: center;
+      top: 5px;
+    }
+
+    .inputtext {
+      position: relative;
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 40px;
+      width: 85%;
+      left: 3%;
+      height: 55px;
+      background: transparent;
+      border: 3px solid white;
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+    .shocheckdata {
+      position: relative;
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 40px;
+      width: 70%;
+      left: 7%;
+      height: 55px;
+      background: transparent;
+      border: 3px solid white;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      top: 7px;
+    }
+    .planposition {
+      position: absolute;
+      bottom: 100%;
+      right: 4.5%;
+      width: 45%;
+    }
+    .planposition22 {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      width: 50%;
+    }
+
+    label {
+      display: relative;
+    }
+    form {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .formbox {
+      position: relative;
+      margin-top: 25px;
+      top: 12%;
+      left: 5%;
+    }
+
+    &:hover {
+      @media all and (max-width: 700px) {
+        margin-top: 10px;
+      }
+
+      .planname {
+        color: black;
+        width: 100px;
+        height: 30px;
+        left: 248px;
+        top: 566px;
+      }
+
+      .planprice {
+        text-align: center;
+      }
+
+      .moreoptions {
+        display: block;
+        padding: 20px;
+        text-align: right;
+        position: relative;
+
+        .additional-options {
           position: relative;
-          margin: 0 auto;
-          max-width: 60%;
-          display: flex;
-          flex-flow: row wrap;
-          
-
-          .planbox {
-                    display: flex;
-                    position: relative;
-                    top: 100px;
-                    width: 100%;
-                    background: linear-gradient(180deg, #CE04BA 0%, #BC2FFF 100%);
-                    box-shadow: 10px -11px 28px rgba(0, 0, 0, 0.25);
-                    border-radius: 27px;
-                    margin: 20px 0;
-                    min-height: 547px;
-                    .hr{
-                              width: 70%;
-                              position: absolute;
-                              height: 0px;
-                              left: 10%;
-                              top: 53%;
-                    }
-                    .headername{
-                    position: absolute;
-                    width: 100%;
-                    height: 30%;
-                    left: 10%;
-                    top: 45%;
-
-                    font-family: 'Montserrat';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 40px;
-                    line-height: 36px;
-                    /* identical to box height, or 90% */
-
-                    letter-spacing: 0.1px;
-
-                    color: #FFFFFF;
-                    }
-                    .nftaddress{
-                    position: absolute;
-                    width: 288px;
-                    height: 184px;
-                    left: 10%;
-                    top: 60%;
-
-                    font-family: 'Montserrat';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: px;
-                    line-height: 32px;
-                    /* or 162% */
-
-                    letter-spacing: 0.1px;
-
-                    color: #FFFFFF;
-                    }
-                    .roleverify{
-                              position: absolute;
-                              width: 288px;
-                              height: 184px;
-                              left: 10%;
-                              top: 75%;
-          
-                              font-family: 'Montserrat';
-                              font-style: normal;
-                              font-weight: 700;
-                              font-size: px;
-                              line-height: 32px;
-                              /* or 162% */
-          
-                              letter-spacing: 0.1px;
-          
-                              color: #FFFFFF;
-                              }
-                              .verified{
-                              position: absolute;
-                              width: 100%;
-                              height: 46px;
-                              left: 10%;
-                              top: 53%;
-
-                              font-family: 'Montserrat';
-                              font-style: normal;
-                              font-weight: 500;
-                              font-size: 24px;
-                              line-height: 32px;
-                              /* or 102% */
-
-                              letter-spacing: 0.1px;
-
-                              color: #FFFFFF;
-                              }
-                              .verifiedinfo{
-                              position: absolute;
-                              width: 80%;
-                              height: 102px;
-                              left: 10%;
-                              top: 70%;
-
-                              font-family: 'Montserrat';
-                              font-style: normal;
-                              font-weight: 200;
-                              font-size: 17px;
-                              line-height: 32px;
-                              /* or 162% */
-
-                              letter-spacing: 0.1px;
-
-                              color: #FFFFFF;
-                              }
-                              .verifiedinfofail{
-                                        position: absolute;
-                                        width: 60%;
-                                        height: 102px;
-                                        left: 10%;
-                                        top: 55%;
-          
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 200;
-                                        font-size: 17px;
-                                        line-height: 32px;
-                                        /* or 162% */
-          
-                                        letter-spacing: 0.1px;
-          
-                                        color: #FFFFFF;
-                                        }
-                              .balance{
-                                        position: absolute;
-                                        width: 288px;
-                                        height: 184px;
-                                        left: 50%;
-                                        top: 60%;
-
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        font-size: 20px;
-                                        line-height: 32px;
-                                        /* or 162% */
-
-                                        letter-spacing: 0.1px;
-
-                                        color: #FFFFFF;
-                              }
-                    .logoprofile{
-                              position: absolute;
-                              left: 70%;
-                              top: -18%;
-                              filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
-                    }
-                    .headerbaner{
-                              position: relative;
-                              min-width: 100%;
-                              max-height: 40%;
-                              left: 0px;
-                              top: 0px;
-                              border-radius: 27px 27px 0px 0px;
-                              background: linear-gradient(180deg, #470A77 0%, rgba(195, 32, 230, 0) 100%);
-                    }
-                    .bestchoice {
-                              background: linear-gradient(180deg, #CE04BA 0%, #BC2FFF 100%);
-                              box-shadow: 12px -12px 24px rgba(0, 0, 0, 0.55);
-                              text-transform: uppercase;
-                              font-weight: 600;
-                              color: $dull-blue;
-                              margin-top: auto;
-                    }
-                    .mostpop {
-                              position: absolute;
-                              width: 25%;
-                              height: 64px;
-                              left: 0px;
-                              top: 0px;
-
-                              background: #FFAE26;
-                              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                              border-radius: 6px 30px 30px 0px;
-                    }
-
-                    .mostpoptext {
-
-                              position: relative;
-                              font-family: 'Poppins';
-                              font-style: normal;
-                              font-weight: 600;
-                              font-size: 120%;
-                              line-height: 30px;
-                              text-align: center;
-                              color: #FFFFFF;
-
-
-                    }
-                    .column {
-                              float: left;
-                              width: 50%;
-                            }
-                            
-                            /* Clear floats after the columns */
-                    .row:after {
-                              content: "";
-                              display: table;
-                              clear: both;
-                            }
-                    .box {
-                              box-sizing: border-box;
-                              position: absolute;
-                              border: 2px solid #FFFFFF;
-                              border-radius: 40px;
-                              
-                              }
-                    input {   
-                              position: relative;
-                              border: none;
-                              margin-bottom: 15px;
-                              border-radius: 40px;
-                              width: 85%;
-                              left: 4%;
-                              height: 55px;
-                              background: transparent;
-                              border: 3px solid white;
-                              color: white;
-                              text-align: center;
-                              top:5px;
-                              }
-                    
-                    .inputtext{
-                              position: relative;
-                              border: none;
-                              margin-bottom: 15px;
-                              border-radius: 40px;
-                              width: 85%;
-                              left: 3%;
-                              height: 55px;
-                              background: transparent;
-                              border: 3px solid white;
-                              color: rgb(255, 255, 255);
-                              text-align: center;
-                              
-                    }
-                    .shocheckdata{
-                              position: relative;
-                              border: none;
-                              margin-bottom: 15px;
-                              border-radius: 40px;
-                              width: 70%;
-                              left: 7%;
-                              height: 55px;
-                              background: transparent;
-                              border: 3px solid white;
-                              color: rgb(255, 255, 255);
-                              text-align: center;
-                              top:7px;
-
-                    }
-                    .planposition{
-                              position: absolute;
-                              bottom: 100%;
-                              right: 4.5%;
-                              width: 45%;
-                              
-                    }
-                    .planposition22{
-                              position: absolute;
-                              bottom: 100%;
-                              right: 0;
-                              width: 50%;
-                    }
-                    
-                    
-                    label {
-                              display: relative;
-                              }
-                    form {
-                              width: 90%;
-                              margin: 0 auto;
-                              }
-                              
-                    .formbox{
-                              position: relative;
-                              margin-top: 25px;
-                              top:12%;
-                              left: 5%;
-                    }
-
-                    &:hover {
-                              
-
-                              @media all and (max-width: 700px) {
-                                        margin-top: 10px;
-                              }
-                              
-                              
-
-                              .planname {
-                                        color: black;
-                                        width: 100px;
-                                        height: 30px;
-                                        left: 248px;
-                                        top: 566px;
-
-                              }
-
-                              .planprice {
-                                        text-align: center;
-
-                              }
-
-                              .moreoptions {
-                                        display: block;
-                                        padding: 20px;
-                                        text-align: right;
-                                        position: relative;
-
-                                        .additional-options {
-                                                  position: relative;
-                                                  text-align: left;
-                                                  width: 100%;
-                                                  margin: 0;
-                                        }
-
-                                        a {
-                                                  text-decoration: none;
-                                        }
-                              }
-                    }
-
-                    @media all and (max-width: 700px) {
-                              &:first-child {
-                                        margin-bottom: 20px;
-
-                              }
-                    }
-
-                    &:lastchild {
-                              margin-right: 0;
-                    }
-
-                    &:nthchild(2) {
-                              margin-top: 0;
-
-                              position: relative;
-
-                              &:hover {
-                                        margin-top: -35px;
-
-                                        @media all and (max-width: 700px) {
-                                                  margin-top: 0px;
-                                                  marign-right: -30px;
-                                        }
-                              }
-                    }
-
-                    @media all and (max-width: 850px) {
-                              width: 100%;
-                              min-height: 450px;
-                              min-width:300px;
-                              .logoprofile{
-                                        position: absolute;
-                                        left: 70%;
-                                        top: -12%;
-                                        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
-                              }
-                              .headername{
-                                        position: absolute;
-                                        width: 100%;
-                                        height: 30%;
-                                        left: 10%;
-                                        top: 40%;
-                    
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        font-size: 32px;
-                                        line-height: 36px;
-                                        /* identical to box height, or 90% */
-                    
-                                        letter-spacing: 0.1px;
-                    
-                                        color: #FFFFFF;
-                                        }
-                                        .button {
-                                        color: #FFD233;
-                                        position: relative;
-                                        background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                                        box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                                        font-family: 'Montserrat', sans-serif;
-                                        top: 62%;
-                                        left: 40%;
-                                        font: 24px $heading-font;
-                                        font-size: 100%;
-                                        width: 20%;
-                                        border: 2px solid #FFAE26;
-                                        border-radius: 27px;
-                                        color: white;
-
-                                        &:hover {
-                                                  background: saturate(#ff8800 , 70%);
-                                        }
-                                        a{
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 700;
-
-                                        }
-                                        }
-                                        .verified{
-                                                  position: absolute;
-                                                  width: 100%;
-                                                  height: 46px;
-                                                  left: 10%;
-                                                  top: 53%;
-                    
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 500;
-                                                  font-size: 20px;
-                                                  line-height: 32px;
-                                                  /* or 102% */
-                    
-                                                  letter-spacing: 0.1px;
-                    
-                                                  color: #FFFFFF;
-                                                  }
-                                                  .verifiedinfo{
-                                                  position: absolute;
-                                                  width: 80%;
-                                                  height: 102px;
-                                                  left: 10%;
-                                                  top: 65%;
-                    
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 200;
-                                                  font-size: 14px;
-                                                  line-height: 32px;
-                                                  /* or 162% */
-                    
-                                                  letter-spacing: 0.1px;
-                    
-                                                  color: #FFFFFF;
-                                                  }
-
-                    }
-                    @media all and (max-width: 690px) {
-                              width: 100%;
-                              min-height: 400px;
-                              .logoprofile{
-                                        position: absolute;
-                                        left: 70%;
-                                        top: -12%;
-                                        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
-                              }
-                              .headername{
-                                        position: absolute;
-                                        width: 100%;
-                                        height: 30%;
-                                        left: 10%;
-                                        top: 30%;
-                    
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        font-size: 24px;
-                                        line-height: 36px;
-                                        /* identical to box height, or 90% */
-                    
-                                        letter-spacing: 0.1px;
-                    
-                                        color: #FFFFFF;
-                                        }
-                              .hr{
-                                        width: 80%;
-                                        position: absolute;
-                                        height: 0px;
-                                        left: 10%;
-                                        top: 40%;
-                                        }
-                                        .button {
-                                                  color: #FFD233;
-                                                  position: relative;
-                                                  background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                                                  box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                                                  font-family: 'Montserrat', sans-serif;
-                                                  top: 68%;
-                                                  left: 35%;
-                                                  font: 24px $heading-font;
-                                                  font-size: 100%;
-                                                  width: 30%;
-                                                  border: 2px solid #FFAE26;
-                                                  border-radius: 27px;
-                                                  color: white;
-          
-                                                  &:hover {
-                                                            background: saturate(#ff8800 , 70%);
-                                                  }
-                                                  a{
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-          
-                                                  }
-                                                  }
-                                                  .balance{
-                                                            position: absolute;
-                                                            width: 118px;
-                                                            height: 84px;
-                                                            left: 56%;
-                                                            top: 50%;
-                    
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 16px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                    
-                                                            letter-spacing: 0.1px;
-                    
-                                                            color: #FFFFFF;
-                                                  }
-                                                  .nftaddress{
-                                                  position: absolute;
-                                                  width: 288px;
-                                                  height: 184px;
-                                                  left: 10%;
-                                                  top: 50%;
-
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 700;
-                                                  font-size: 14px;
-                                                  line-height: 32px;
-                                                  /* or 162% */
-
-                                                  letter-spacing: 0.1px;
-
-                                                  color: #FFFFFF;
-                                                  }
-                                                  .roleverify{
-                                                            position: absolute;
-                                                            width: 288px;
-                                                            height: 184px;
-                                                            left: 10%;
-                                                            top: 65%;
-                                        
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 14px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                                        
-                                                            letter-spacing: 0.1px;
-                                        
-                                                            color: #FFFFFF;
-                                                            }
-                                                            .verified{
-                                                                      position: absolute;
-                                                                      width: 100%;
-                                                                      height: 46px;
-                                                                      left: 10%;
-                                                                      top: 43%;
-                                        
-                                                                      font-family: 'Montserrat';
-                                                                      font-style: normal;
-                                                                      font-weight: 500;
-                                                                      font-size: 14px;
-                                                                      line-height: 32px;
-                                                                      /* or 102% */
-                                        
-                                                                      letter-spacing: 0.1px;
-                                        
-                                                                      color: #FFFFFF;
-                                                                      }
-                                                                      .verifiedinfo{
-                                                                      position: absolute;
-                                                                      width: 80%;
-                                                                      height: 102px;
-                                                                      left: 10%;
-                                                                      top: 53%;
-                                        
-                                                                      font-family: 'Montserrat';
-                                                                      font-style: normal;
-                                                                      font-weight: 200;
-                                                                      font-size: 12px;
-                                                                      line-height: 32px;
-                                                                      /* or 162% */
-                                        
-                                                                      letter-spacing: 0.1px;
-                                        
-                                                                      color: #FFFFFF;
-                                                                      }
-                    }
-                    @media all and (max-width: 530px) {
-                              width: 100%;
-                              min-height: 350px;
-                              .logoprofile{
-                                        position: absolute;
-                                        left: 65%;
-                                        top: -7%;
-                                        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
-                              }
-                              .headername{
-                                        position: absolute;
-                                        width: 100%;
-                                        height: 30%;
-                                        left: 10%;
-                                        top: 28%;
-                    
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        font-size: 18px;
-                                        line-height: 36px;
-                                        /* identical to box height, or 90% */
-                    
-                                        letter-spacing: 0.1px;
-                    
-                                        color: #FFFFFF;
-                                        }
-                              .hr{
-                                        width: 80%;
-                                        position: absolute;
-                                        height: 0px;
-                                        left: 10%;
-                                        top: 40%;
-                                        }
-                                        .button {
-                                                  color: #FFD233;
-                                                  position: relative;
-                                                  background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                                                  box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                                                  font-family: 'Montserrat', sans-serif;
-                                                  top: 72%;
-                                                  left: 35%;
-                                                  font: 24px $heading-font;
-                                                  font-size: 100%;
-                                                  width: 33%;
-                                                  border: 2px solid #FFAE26;
-                                                  border-radius: 27px;
-                                                  color: white;
-          
-                                                  &:hover {
-                                                            background: saturate(#ff8800 , 70%);
-                                                  }
-                                                  a{
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-          
-                                                  }
-                                                  }
-                                                  .balance{
-                                                            position: absolute;
-                                                            width: 90px;
-                                                            height: 84px;
-                                                            left: 56%;
-                                                            top: 50%;
-                    
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 11px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                    
-                                                            letter-spacing: 0.1px;
-                    
-                                                            color: #FFFFFF;
-                                                  }
-                                                  .nftaddress{
-                                                  position: absolute;
-                                                  width: 138px;
-                                                  height: 184px;
-                                                  left: 10%;
-                                                  top: 50%;
-
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 700;
-                                                  font-size: 11px;
-                                                  line-height: 32px;
-                                                  /* or 162% */
-
-                                                  letter-spacing: 0.1px;
-
-                                                  color: #FFFFFF;
-                                                  }
-                                                  .roleverify{
-                                                            position: absolute;
-                                                            width: 138px;
-                                                            height: 184px;
-                                                            left: 10%;
-                                                            top: 70%;
-                                        
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 11px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                                        
-                                                            letter-spacing: 0.1px;
-                                        
-                                                            color: #FFFFFF;
-                                                            }
-                    }
-                    @media all and (max-width: 440px) {
-                              width: 100%;
-                              left: -10px;
-                              min-width:300px;
-                              min-height: 450px;
-                              .logoprofile{
-                                        position: absolute;
-                                        left: 65%;
-                                        top: -6%;
-                                        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
-                              }
-                              .headername{
-                                        position: absolute;
-                                        width: 80%;
-                                        height: 30%;
-                                        left: 10%;
-                                        top: 28%;
-                    
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        font-size: 20px;
-                                        line-height: 36px;
-                                        /* identical to box height, or 90% */
-                    
-                                        letter-spacing: 0.1px;
-                    
-                                        color: #FFFFFF;
-                                        }
-                              .hr{
-                                        width: 80%;
-                                        position: absolute;
-                                        height: 0px;
-                                        left: 10%;
-                                        top: 40%;
-                                        }
-                                        .button {
-                                                  color: #FFD233;
-                                                  position: relative;
-                                                  background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                                                  box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                                                  font-family: 'Montserrat', sans-serif;
-                                                  top: 72%;
-                                                  left: 30%;
-                                                  font: 24px $heading-font;
-                                                  font-size: 100%;
-                                                  width: 44%;
-                                                  border: 2px solid #FFAE26;
-                                                  border-radius: 27px;
-                                                  color: white;
-          
-                                                  &:hover {
-                                                            background: saturate(#ff8800 , 70%);
-                                                  }
-                                                  a{
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-          
-                                                  }
-                                                  }
-                                                  .balance{
-                                                            position: absolute;
-                                                            width: 90px;
-                                                            height: 84px;
-                                                            left: 60%;
-                                                            top: 50%;
-                    
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 14px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                    
-                                                            letter-spacing: 0.1px;
-                    
-                                                            color: #FFFFFF;
-                                                  }
-                                                  .nftaddress{
-                                                  position: absolute;
-                                                  width: 138px;
-                                                  height: 184px;
-                                                  left: 10%;
-                                                  top: 50%;
-
-                                                  font-family: 'Montserrat';
-                                                  font-style: normal;
-                                                  font-weight: 700;
-                                                  font-size: 12px;
-                                                  line-height: 32px;
-                                                  /* or 162% */
-
-                                                  letter-spacing: 0.1px;
-
-                                                  color: #FFFFFF;
-                                                  }
-                                                  .roleverify{
-                                                            position: absolute;
-                                                            width: 138px;
-                                                            height: 184px;
-                                                            left: 10%;
-                                                            top: 70%;
-                                        
-                                                            font-family: 'Montserrat';
-                                                            font-style: normal;
-                                                            font-weight: 700;
-                                                            font-size: 12px;
-                                                            line-height: 32px;
-                                                            /* or 162% */
-                                        
-                                                            letter-spacing: 0.1px;
-                                        
-                                                            color: #FFFFFF;
-                                                            }
-                    }
-          }
-
-
-
-          .planname {
-                    font: 300 32px $heading-font;
-                    text-align: center;
-                    margin: 0;
-                    padding: 20px;
-          }
-
-          .planpriceplan {
-                    font: 300 32px $heading-font;
-                    position: relative;
-                    top: 4%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #FFFFFF;
-          }
-
-          .planpriceplannoob {
-                    font: 300 32px $heading-font;
-                    position: relative;
-                    top: 4%;
-                    left: 33%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #FFFFFF;
-          }
-
-          .planholders {
-                    position: absolute;
-                    left: 14%;
-                    right: 14.86%;
-                    top: 15%;
-                    bottom: 31.45%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 48px;
-                    line-height: 72px;
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-          .planholders2{
-                    position: absolute;
-                    left: 14%;
-                    right: 14.86%;
-                    top: 22.96%;
-                    bottom: 31.46%;
-
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 24px;
-                    line-height: 36px;
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-         
-          .boxplan{
-
-                    position: relative;
-                    font-family: 'Poppins';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 20px;
-                    line-height: 231%;
-                    top:30%;
-                    /* or 35px */
-
-                    text-align: center;
-
-                    color: #FFFFFF;
-          }
-          .planprice {
-                    color: white;
-                    display: flex;
-                    font: 24px $heading-font;
-                    padding: 20px 10px;
-                    text-align: center;
-
-                    strong {
-                              font-size: 34px;
-                              align-self: baseline;
-                              line-height: 1;
-                              font-weight: 500;
-                    }
-          }
-
-          .planoptions {
-                    display: flex;
-                    flex-flow: column;
-                    width: 100%;
-
-                    li {
-                              border-bottom: 1px solid #cdcdcd;
-                              padding: 5px 0;
-                              margin: 5px 0;
-                    }
-
-
-                    .buttonnewconnect {
-                              color: #FFD233;
-                              position: relative;
-                              background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                              box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                              font-family: 'Montserrat', sans-serif;
-                              top: 96%;
-                              left: 35%;
-                              font: 24px $heading-font;
-                              font-size: 100%;
-                              width: 30%;
-                              height: 9%;
-                              border: 2px solid #FFAE26;
-                              border-radius: 27px;
-                              color: white;
-
-                              &:hover {
-                                        background: saturate(#ff8800 , 70%);
-                              }
-                              a{
-                                        font-family: 'Montserrat';
-                                        font-style: normal;
-                                        font-weight: 700;
-
-                              }
-                    }
-                    .button1 {
-                              color: #FFD233;
-                              position: relative;
-                              background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                              box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                              top: 0px;
-                              left: 24%;
-                              font: 24px $heading-font;
-                              font-size: 100%;
-                              width: 20%;
-                              height: 50px;
-                              border: 2px solid #FFD233;
-                              border-radius: 27px;
-                              color: white;
-
-                              &:hover {
-                                        background: saturate(#fb8a09 , 70%);
-                              }
-                    }
-                    .buttonback {
-                              color: #FFD233;
-                              position: relative;
-                              background: linear-gradient(230.29deg, #FF6320 36.06%, #FF5A26 72.69%);
-                              box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
-                              border-radius: 30px;
-                              top: 0;
-                              left: 27%;
-                              height: 50px;
-                              font: 24px $heading-font;
-                              font-size: 100%;
-                              width: 20%;
-                              border: 2px solid #FF5A26;
-                              border-radius: 27px;
-                              color: white;
-
-                              &:hover {
-                                        background: saturate(#fa3a00 , 70%);
-                              }
-                    }
-                    .buttoninvitebot {
-                              color: #FFD233;
-                              position: relative;
-                              background: linear-gradient(230.29deg, #FF9820 36.06%, #FFAE26 72.69%);
-                              box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2); 
-                              top: 100px;
-                              left: 40%;
-                              font: 24px $heading-font;
-                              font-size: 100%;
-                              width: 20%;
-                              height: 50px;
-                              border: 2px solid #FFD233;
-                              border-radius: 27px;
-                              color: white;
-
-                              &:hover {
-                                        background: saturate(#fb8a09 , 70%);
-                              }
-                    .vdocontaner{
-                              position: relative;
-                              top: 20px;
-                    }
-                    }
-          }
+          text-align: left;
+          width: 100%;
+          margin: 0;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media all and (max-width: 700px) {
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:lastchild {
+      margin-right: 0;
+    }
+
+    &:nthchild(2) {
+      margin-top: 0;
+
+      position: relative;
+
+      &:hover {
+        margin-top: -35px;
+
+        @media all and (max-width: 700px) {
+          margin-top: 0px;
+          marign-right: -30px;
+        }
+      }
+    }
+
+    @media all and (max-width: 850px) {
+      width: 100%;
+      min-height: 450px;
+      min-width: 300px;
+      .logoprofile {
+        position: absolute;
+        left: 70%;
+        top: -12%;
+        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
+      }
+      .headername {
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        left: 10%;
+        top: 40%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 36px;
+        /* identical to box height, or 90% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .button {
+        color: #ffd233;
+        position: relative;
+        background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+        box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+        font-family: "Montserrat", sans-serif;
+        top: 62%;
+        left: 40%;
+        font: 24px $heading-font;
+        font-size: 100%;
+        width: 20%;
+        border: 2px solid #ffae26;
+        border-radius: 27px;
+        color: white;
+
+        &:hover {
+          background: saturate(#ff8800, 70%);
+        }
+        a {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+      .verified {
+        position: absolute;
+        width: 100%;
+        height: 46px;
+        left: 10%;
+        top: 53%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 32px;
+        /* or 102% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .verifiedinfo {
+        position: absolute;
+        width: 80%;
+        height: 102px;
+        left: 10%;
+        top: 65%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+    }
+    @media all and (max-width: 690px) {
+      width: 100%;
+      min-height: 400px;
+      .logoprofile {
+        position: absolute;
+        left: 70%;
+        top: -12%;
+        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
+      }
+      .headername {
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        left: 10%;
+        top: 30%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        /* identical to box height, or 90% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .hr {
+        width: 80%;
+        position: absolute;
+        height: 0px;
+        left: 10%;
+        top: 40%;
+      }
+      .button {
+        color: #ffd233;
+        position: relative;
+        background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+        box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+        font-family: "Montserrat", sans-serif;
+        top: 68%;
+        left: 35%;
+        font: 24px $heading-font;
+        font-size: 100%;
+        width: 30%;
+        border: 2px solid #ffae26;
+        border-radius: 27px;
+        color: white;
+
+        &:hover {
+          background: saturate(#ff8800, 70%);
+        }
+        a {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+      .balance {
+        position: absolute;
+        width: 118px;
+        height: 84px;
+        left: 56%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .nftaddress {
+        position: absolute;
+        width: 288px;
+        height: 184px;
+        left: 10%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .roleverify {
+        position: absolute;
+        width: 288px;
+        height: 184px;
+        left: 10%;
+        top: 65%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .verified {
+        position: absolute;
+        width: 100%;
+        height: 46px;
+        left: 10%;
+        top: 43%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 32px;
+        /* or 102% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .verifiedinfo {
+        position: absolute;
+        width: 80%;
+        height: 102px;
+        left: 10%;
+        top: 53%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 200;
+        font-size: 12px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+    }
+    @media all and (max-width: 530px) {
+      width: 100%;
+      min-height: 350px;
+      .logoprofile {
+        position: absolute;
+        left: 65%;
+        top: -7%;
+        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
+      }
+      .headername {
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        left: 10%;
+        top: 28%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 36px;
+        /* identical to box height, or 90% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .hr {
+        width: 80%;
+        position: absolute;
+        height: 0px;
+        left: 10%;
+        top: 40%;
+      }
+      .button {
+        color: #ffd233;
+        position: relative;
+        background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+        box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+        font-family: "Montserrat", sans-serif;
+        top: 72%;
+        left: 35%;
+        font: 24px $heading-font;
+        font-size: 100%;
+        width: 33%;
+        border: 2px solid #ffae26;
+        border-radius: 27px;
+        color: white;
+
+        &:hover {
+          background: saturate(#ff8800, 70%);
+        }
+        a {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+      .balance {
+        position: absolute;
+        width: 90px;
+        height: 84px;
+        left: 56%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .nftaddress {
+        position: absolute;
+        width: 138px;
+        height: 184px;
+        left: 10%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .roleverify {
+        position: absolute;
+        width: 138px;
+        height: 184px;
+        left: 10%;
+        top: 70%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+    }
+    @media all and (max-width: 440px) {
+      width: 100%;
+      left: -10px;
+      min-width: 300px;
+      min-height: 450px;
+      .logoprofile {
+        position: absolute;
+        left: 65%;
+        top: -6%;
+        filter: drop-shadow(7px 4px 16px rgba(0, 0, 0, 0.45));
+      }
+      .headername {
+        position: absolute;
+        width: 80%;
+        height: 30%;
+        left: 10%;
+        top: 28%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 36px;
+        /* identical to box height, or 90% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .hr {
+        width: 80%;
+        position: absolute;
+        height: 0px;
+        left: 10%;
+        top: 40%;
+      }
+      .button {
+        color: #ffd233;
+        position: relative;
+        background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+        box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+        font-family: "Montserrat", sans-serif;
+        top: 72%;
+        left: 30%;
+        font: 24px $heading-font;
+        font-size: 100%;
+        width: 44%;
+        border: 2px solid #ffae26;
+        border-radius: 27px;
+        color: white;
+
+        &:hover {
+          background: saturate(#ff8800, 70%);
+        }
+        a {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+      .balance {
+        position: absolute;
+        width: 90px;
+        height: 84px;
+        left: 60%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .nftaddress {
+        position: absolute;
+        width: 138px;
+        height: 184px;
+        left: 10%;
+        top: 50%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+      .roleverify {
+        position: absolute;
+        width: 138px;
+        height: 184px;
+        left: 10%;
+        top: 70%;
+
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 32px;
+        /* or 162% */
+
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+    }
+  }
+
+  .planname {
+    font: 300 32px $heading-font;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .planpriceplan {
+    font: 300 32px $heading-font;
+    position: relative;
+    top: 4%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .planpriceplannoob {
+    font: 300 32px $heading-font;
+    position: relative;
+    top: 4%;
+    left: 33%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .planholders {
+    position: absolute;
+    left: 14%;
+    right: 14.86%;
+    top: 15%;
+    bottom: 31.45%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .planholders2 {
+    position: absolute;
+    left: 14%;
+    right: 14.86%;
+    top: 22.96%;
+    bottom: 31.46%;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  .boxplan {
+    position: relative;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 231%;
+    top: 30%;
+    /* or 35px */
+
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .planprice {
+    color: white;
+    display: flex;
+    font: 24px $heading-font;
+    padding: 20px 10px;
+    text-align: center;
+
+    strong {
+      font-size: 34px;
+      align-self: baseline;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+
+  .planoptions {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    li {
+      border-bottom: 1px solid #cdcdcd;
+      padding: 5px 0;
+      margin: 5px 0;
+    }
+
+    .buttonnewconnect {
+      color: #ffd233;
+      position: relative;
+      background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+      box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+      font-family: "Montserrat", sans-serif;
+      top: 96%;
+      left: 35%;
+      font: 24px $heading-font;
+      font-size: 100%;
+      width: 30%;
+      height: 9%;
+      border: 2px solid #ffae26;
+      border-radius: 27px;
+      color: white;
+
+      &:hover {
+        background: saturate(#ff8800, 70%);
+      }
+      a {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+      }
+    }
+    .button1 {
+      color: #ffd233;
+      position: relative;
+      background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+      box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+      top: 0px;
+      left: 24%;
+      font: 24px $heading-font;
+      font-size: 100%;
+      width: 20%;
+      height: 50px;
+      border: 2px solid #ffd233;
+      border-radius: 27px;
+      color: white;
+
+      &:hover {
+        background: saturate(#fb8a09, 70%);
+      }
+    }
+    .buttonback {
+      color: #ffd233;
+      position: relative;
+      background: linear-gradient(230.29deg, #ff6320 36.06%, #ff5a26 72.69%);
+      box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+      border-radius: 30px;
+      top: 0;
+      left: 27%;
+      height: 50px;
+      font: 24px $heading-font;
+      font-size: 100%;
+      width: 20%;
+      border: 2px solid #ff5a26;
+      border-radius: 27px;
+      color: white;
+
+      &:hover {
+        background: saturate(#fa3a00, 70%);
+      }
+    }
+    .buttoninvitebot {
+      color: #ffd233;
+      position: relative;
+      background: linear-gradient(230.29deg, #ff9820 36.06%, #ffae26 72.69%);
+      box-shadow: 0px 10px 30px rgba(183, 50, 39, 0.2);
+      top: 100px;
+      left: 40%;
+      font: 24px $heading-font;
+      font-size: 100%;
+      width: 20%;
+      height: 50px;
+      border: 2px solid #ffd233;
+      border-radius: 27px;
+      color: white;
+
+      &:hover {
+        background: saturate(#fb8a09, 70%);
+      }
+      .vdocontaner {
+        position: relative;
+        top: 20px;
+      }
+    }
+  }
 }
-
-

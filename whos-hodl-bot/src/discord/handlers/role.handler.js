@@ -10,7 +10,6 @@ const createRole = async (client, guildId, roleName, color) => {
 // const createRoles = async (client, guild, rolesData) => {};
 
 const fetchRole = async (client, guildId, roleName) => {
-  console.log(roleName);
   const guild = client.guilds.cache.get(guildId);
   const roles = await guild.roles.fetch();
   const role = roles.find((role) => {

@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
       production === "PROD" ? "host.docker.internal" : "host.docker.internal",
     port: postgres_port,
     dialect: "postgres",
+    logging: false,
   }
 );
 

@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { remote_database } = require("../../../constants/database.config");
-const baseRoute = "project";
+const baseRoute = "v1/project";
 
 /**
  *
@@ -54,14 +54,18 @@ const createNewProject = async (
 };
 
 const getAllProjects = async () => {
-  const response = await axios.get(`${remote_database}/${baseRoute}`);
+  const response = await axios
+    .get(`${remote_database}/${baseRoute}`)
+    .catch((error) => {
+      console.log("error here", error);
+    });
   return response.data.data;
 };
 
 const getProjectByGuild = async (discordGuildId) => {
   const response = await axios
     .get(`${remote_database}/${baseRoute}/guild/${discordGuildId}`)
-    .catch((e) => console.log("ERROR!", e.message));
+    .catch((e) => console.log("ERROR!", console.log(e)));
 
   return response.data.data;
 };

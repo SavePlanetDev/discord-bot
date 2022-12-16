@@ -1,5 +1,5 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount, useConnect } from "wagmi";
+import { useAccount } from "wagmi";
 import Header from "../components/header";
 import Body from "../components/body";
 import Footer from "../components/footer";
@@ -14,7 +14,7 @@ export default function Homepage() {
   const { discordId, guildId } = router.query;
 
   const verifyHolder = async (discordId, guildId, address) => {
-    const [nftAddress, setNftAddres] = useState(undefined);
+    // const [nftAddress, setNftAddres] = useState(undefined);
 
     try {
       const response = await axios.post(
@@ -26,7 +26,7 @@ export default function Homepage() {
           discordGuildId: guildId,
         }
       );
-      console.log(response.data.data);
+      console.log("data:", response.data.data);
       router.push("/success");
     } catch (e) {
       const walletaddress = JSON.stringify(address);
